@@ -51,8 +51,8 @@ export default {
                             <p>{{ level.id }}</p>
                         </li>
                         <li>
-                            <div class="type-title-sm">Fps</div>
-                            <p>{{ level.fps }}</p>
+                              <div class="type-title-sm">FPS</div>
+                              <p>{{ level.fps || 'Any' }}</p>
                         </li>
                     </ul>
                     <h2>Records</h2>
