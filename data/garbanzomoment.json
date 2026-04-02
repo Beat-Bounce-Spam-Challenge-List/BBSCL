@@ -6,6 +6,7 @@
     "verifier": "z1mb1s",
     "verification": "https://www.youtube.com/watch?v=qI8ZJEuEeko",
     "percentToQualify": 100,
+    "fps": "60",
     "records": [
     ]
 }
