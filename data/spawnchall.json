@@ -1,0 +1,18 @@
+{
+    "id": 902159,
+    "name": "spawn challenge",
+    "author": "enimeoww",
+    "creators": ["enimeoww"],
+    "verifier": "enimeoww",
+    "verification": "https://youtu.be/JLMEAhuE2xY",
+    "percentToQualify": 100,
+    "fps": "Any",
+    "records": [
+        {
+        "user": "z1mb1s",
+            "link": "https://youtu.be/JLMEAhuE2xY",
+            "percent": 100,
+            "hz": 60
+        }
+    ]
+}
