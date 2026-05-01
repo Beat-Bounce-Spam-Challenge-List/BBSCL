@@ -40,7 +40,7 @@ export function embedMedal(clip, options = {}) {
     const originalUrl = `https://medal.tv/clip/${clipId}${queryString ? `?${queryString}` : ''}`;
     
     // Используем прокси для обхода X-Frame-Options
-    const proxyUrl = `https://corsproxy.io/${originalUrl}`;
+    const proxyUrl = `https://api.allorigins.win/${originalUrl}`;
     return proxyUrl;
 }
 
