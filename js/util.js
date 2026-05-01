@@ -14,6 +14,11 @@ export function getYoutubeThumbnailFromId(id) {
     return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
 
+// Алиас для обратной совместимости (для старого кода, который использует getThumbnailFromId)
+export function getThumbnailFromId(id) {
+    return getYoutubeThumbnailFromId(id);
+}
+
 // Функции для Medal.tv
 export function getMedalIdFromUrl(url) {
     // Поддерживает форматы:
