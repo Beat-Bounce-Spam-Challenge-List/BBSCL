@@ -14,15 +14,13 @@ export function getYoutubeThumbnailFromId(id) {
     return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
 
-// Алиас для обратной совместимости (для старого кода, который использует getThumbnailFromId)
+// Алиас для обратной совместимости
 export function getThumbnailFromId(id) {
     return getYoutubeThumbnailFromId(id);
 }
 
 // Функции для Medal.tv
 export function getMedalIdFromUrl(url) {
-    // Поддерживает форматы:
-    // https://medal.tv/clip/4954893 или https://medal.tv/clip/4954893/vpkPnOp0o
     const match = url.match(/medal\.tv\/clip\/(\d+)(?:\/[\w]+)?/);
     return match ? match[1] : '';
 }
@@ -31,7 +29,6 @@ export function embedMedal(clip, options = {}) {
     const clipId = getMedalIdFromUrl(clip);
     if (!clipId) return '';
     
-    // Настройки по умолчанию (как в документации Medal)
     const params = new URLSearchParams();
     params.set('autoplay', options.autoplay !== undefined ? (options.autoplay ? '1' : '0') : '1');
     params.set('muted', options.muted !== undefined ? (options.muted ? '1' : '0') : '1');
@@ -46,7 +43,6 @@ export function embedMedal(clip, options = {}) {
 }
 
 export function getMedalThumbnailFromId(id) {
-    // Medal предоставляет превью через свой API
     return `https://medal.tv/clip/${id}/thumbnail.jpg`;
 }
 
@@ -55,23 +51,16 @@ export function localize(num) {
     return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
 }
 
-// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 export function shuffle(array) {
     let currentIndex = array.length, randomIndex;
-
-    // While there remain elements to shuffle.
     while (currentIndex != 0) {
-        // Pick a remaining element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-
-        // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex],
             array[currentIndex],
         ];
     }
-
     return array;
 }
 
@@ -95,4 +84,18 @@ export function getThumbnailFromUrl(video) {
         return id ? getYoutubeThumbnailFromId(id) : '';
     }
     return '';
+}
+
+// НОВАЯ ФУНКЦИЯ: создает готовый HTML iframe для вставки на страницу
+export function getEmbedHTML(video, options = {}, width = 640, height = 360) {
+    const embedUrl = embed(video, options);
+    if (!embedUrl) return '';
+    
+    // Для Medal.tv добавляем allow атрибуты
+    if (video.includes('medal.tv')) {
+        return `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" allow="autoplay" allowfullscreen></iframe>`;
+    }
+    
+    // Для YouTube
+    return `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
