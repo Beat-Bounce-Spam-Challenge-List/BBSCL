@@ -1,7 +1,7 @@
 // util.js - Исправленная версия с защитой от самовставки
 
 // Настройки
-const MEDAL_API_KEY = 'pub_V4KfwqZJyOK5FtQRDgIKjtnmcOGU9Lh4'; // Оставьте пустым, ключ не нужен
+const MEDAL_API_KEY = ''; // Оставьте пустым, ключ не нужен
 
 // Функции для YouTube
 export function getYoutubeIdFromUrl(url) {
