@@ -1,5 +1,4 @@
 // Функции для YouTube
-// https://stackoverflow.com/questions/3452546/how-do-i-get-the-youtube-video-id-from-a-url
 export function getYoutubeIdFromUrl(url) {
     return url.match(
         /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/,
@@ -14,7 +13,6 @@ export function getYoutubeThumbnailFromId(id) {
     return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
 
-// Алиас для обратной совместимости
 export function getThumbnailFromId(id) {
     return getYoutubeThumbnailFromId(id);
 }
@@ -46,7 +44,6 @@ export function getMedalThumbnailFromId(id) {
     return `https://medal.tv/clip/${id}/thumbnail.jpg`;
 }
 
-// Общие вспомогательные функции
 export function localize(num) {
     return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
 }
@@ -64,7 +61,6 @@ export function shuffle(array) {
     return array;
 }
 
-// Универсальная функция, которая определяет тип видео по URL
 export function embed(video, options = {}) {
     if (video.includes('medal.tv')) {
         return embedMedal(video, options);
@@ -74,7 +70,6 @@ export function embed(video, options = {}) {
     return '';
 }
 
-// Универсальная функция для получения превью
 export function getThumbnailFromUrl(video) {
     if (video.includes('medal.tv')) {
         const id = getMedalIdFromUrl(video);
@@ -86,16 +81,25 @@ export function getThumbnailFromUrl(video) {
     return '';
 }
 
-// НОВАЯ ФУНКЦИЯ: создает готовый HTML iframe для вставки на страницу
 export function getEmbedHTML(video, options = {}, width = 640, height = 360) {
     const embedUrl = embed(video, options);
     if (!embedUrl) return '';
     
-    // Для Medal.tv добавляем allow атрибуты
     if (video.includes('medal.tv')) {
         return `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" allow="autoplay" allowfullscreen></iframe>`;
     }
     
-    // Для YouTube
     return `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+}
+
+// ДОБАВЛЯЕМ ГЛОБАЛЬНЫЕ ФУНКЦИИ ДЛЯ КОНСОЛИ И СТАРЫХ СКРИПТОВ
+if (typeof window !== 'undefined') {
+    window.embed = embed;
+    window.getEmbedHTML = getEmbedHTML;
+    window.embedMedal = embedMedal;
+    window.embedYoutube = embedYoutube;
+    window.getMedalIdFromUrl = getMedalIdFromUrl;
+    window.getYoutubeIdFromUrl = getYoutubeIdFromUrl;
+    window.getThumbnailFromUrl = getThumbnailFromUrl;
+    window.getMedalThumbnailFromId = getMedalThumbnailFromId;
 }
