@@ -17,6 +17,21 @@ export function getThumbnailFromId(id) {
     return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
 
+// Medal.tv support
+export function getMedalClipIdFromUrl(url) {
+    return url.match(/medal\.tv\/clip\/([a-zA-Z0-9]*)/)?.[1] ?? '';
+}
+
+export function embedMedal(clip) {
+    const id = getMedalClipIdFromUrl(clip);
+    return id ? `https://medal.tv/embed/${id}` : '';
+}
+
+export function getMedalThumbnail(clip) {
+    const id = getMedalClipIdFromUrl(clip);
+    return id ? `https://cdn.medal.tv/thumbnails/${id}-default.jpg` : '';
+}
+
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 export function shuffle(array) {
     let currentIndex = array.length, randomIndex;
