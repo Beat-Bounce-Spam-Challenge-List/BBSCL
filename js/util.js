@@ -5,137 +5,97 @@ export function getYoutubeIdFromUrl(url) {
     )?.[1] ?? '';
 }
 
-// Функция для извлечения ссылки на клип Medal.tv из URL
-export function getMedalClipUrl(url) {
-    // Поддерживаемые форматы URL Medal.tv:
-    // https://medal.tv/clips/CLIP_ID
-    // https://medal.tv/games/GAME_SLUG/clips/CLIP_ID
-    // https://medal.tv/users/USER_ID/clips/CLIP_ID
+// Функция для получения ID Medal.tv из URL
+export function getMedalIdFromUrl(url) {
+    // Поддерживаемые форматы:
+    // https://medal.tv/clips/12345678
+    // https://medal.tv/games/valorant/clips/12345678
+    // https://medal.tv/clips/12345678/abcdefghijkl
+    // https://medal.tv/clips/12345678?invite=xxx
     const patterns = [
-        /medal\.tv\/clips\/([a-zA-Z0-9]+)/,
-        /medal\.tv\/[^\/]+\/clips\/([a-zA-Z0-9]+)/,
-        /medal\.tv\/users\/[^\/]+\/clips\/([a-zA-Z0-9]+)/
+        /medal\.tv\/clips\/([^\/\?#]+)/,
+        /medal\.tv\/[^\/]+\/clips\/([^\/\?#]+)/,
+        /medal\.tv\/clips\/([^\?]+)/
     ];
     
     for (const pattern of patterns) {
         const match = url.match(pattern);
-        if (match) {
-            return `https://medal.tv/clips/${match[1]}`;
-        }
+        if (match) return match[1];
     }
     return '';
 }
 
-// Проверка, является ли URL ссылкой на Medal.tv
-export function isMedalUrl(url) {
-    return /medal\.tv\/(clips\/|[^\/]+\/clips\/|users\/[^\/]+\/clips\/)/.test(url);
+// Функция для определения типа видео
+export function getVideoType(url) {
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        return 'youtube';
+    } else if (url.includes('medal.tv')) {
+        return 'medal';
+    }
+    return 'unknown';
 }
 
-// Встраивание видео (универсальное)
+// Функция для получения embed URL
 export function embed(video) {
-    const youtubeId = getYoutubeIdFromUrl(video);
-    if (youtubeId) {
-        return `https://www.youtube.com/embed/${youtubeId}`;
-    }
+    const type = getVideoType(video);
     
-    if (isMedalUrl(video)) {
-        const clipUrl = getMedalClipUrl(video);
-        if (clipUrl) {
-            // Medal.tv использует iframe для встраивания
-            // Используем их официальный embed URL
-            const clipId = clipUrl.split('/').pop();
-            return `https://medal.tv/embed/clip/${clipId}`;
-        }
+    if (type === 'youtube') {
+        return `https://www.youtube.com/embed/${getYoutubeIdFromUrl(video)}`;
+    } else if (type === 'medal') {
+        const medalId = getMedalIdFromUrl(video);
+        return `https://medal.tv/clips/${medalId}/embed`;
     }
     
     return '';
 }
 
-// Получение данных клипа через API Medal.tv
-// Требуется API ключ: https://docs.medal.tv/gameapi/get-api-key.html [citation:1]
-export async function getMedalClipData(url, apiKey) {
-    if (!isMedalUrl(url)) {
-        return null;
-    }
-    
-    const clipUrl = getMedalClipUrl(url);
-    if (!clipUrl) {
-        return null;
-    }
-    
-    const clipId = clipUrl.split('/').pop();
-    
-    // Использование Medal.tv Developer API
-    // API endpoint: https://docs.medal.tv/restapi/clips/get-clip.html [citation:3]
-    const apiUrl = `https://developers.medal.tv/v1/clips/${clipId}?include=content,user`;
-    
+// Функция для получения данных о клипе Medal.tv через API
+export async function getMedalClipData(medalId) {
     try {
-        const response = await fetch(apiUrl, {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Accept': 'application/json'
-            }
-        });
+        // Medal.tv публичный API для получения информации о клипе
+        const response = await fetch(`https://api.medal.tv/clip/${medalId}?include=user`);
         
         if (!response.ok) {
-            throw new Error(`API Error: ${response.status}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         
         const data = await response.json();
-        
-        // Нормализация данных в единый формат [citation:3]
         return {
-            id: data.id || clipId,
-            title: data.contentTitle || 'Medal.tv Clip',
-            thumbnail: data.contentThumbnail || `https://cdn.medal.tv/ugcc/content-thumbnail/${clipId}`,
-            views: data.contentViews || 0,
-            likes: data.contentLikes || 0,
-            duration: data.videoLengthSeconds || 0,
-            url: data.directClipUrl || clipUrl,
-            embedUrl: `https://medal.tv/embed/clip/${clipId}`,
-            author: data.credits || 'Medal Creator',
-            platform: 'medal'
+            id: data.id,
+            title: data.title || 'Medal.tv Clip',
+            thumbnailUrl: data.thumbnailUrl || `https://medal.tv/clips/${medalId}/thumbnail`,
+            videoUrl: data.contentUrl,
+            views: data.views,
+            duration: data.duration,
+            userName: data.user?.username,
+            createdAt: data.createdAt
         };
     } catch (error) {
-        console.error('Error fetching Medal clip data:', error);
-        // Fallback: возвращаем базовую информацию без API
-        return {
-            id: clipId,
-            title: 'Medal.tv Clip',
-            thumbnail: `https://cdn.medal.tv/ugcc/content-thumbnail/${clipId}`,
-            views: 0,
-            likes: 0,
-            duration: 0,
-            url: clipUrl,
-            embedUrl: `https://medal.tv/embed/clip/${clipId}`,
-            author: 'Medal Creator',
-            platform: 'medal'
-        };
+        console.error('Error fetching Medal.tv clip data:', error);
+        return null;
     }
 }
 
-// Получение миниатюры (универсальное)
-export function getThumbnail(video) {
-    const youtubeId = getYoutubeIdFromUrl(video);
-    if (youtubeId) {
-        return getThumbnailFromId(youtubeId);
+// Функция для получения превью (совместимая с существующей)
+export function getThumbnailFromId(id, type = 'youtube') {
+    if (type === 'youtube') {
+        return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+    } else if (type === 'medal') {
+        // Для Medal.tv возвращаем URL превью, который будет загружен асинхронно
+        // или синхронно, если ID - это clip ID
+        return `https://medal.tv/clips/${id}/thumbnail`;
     }
-    
-    if (isMedalUrl(video)) {
-        const clipUrl = getMedalClipUrl(video);
-        const clipId = clipUrl?.split('/').pop();
-        if (clipId) {
-            // Medal.tv CDN для миниатюр [citation:3]
-            return `https://cdn.medal.tv/ugcc/content-thumbnail/${clipId}`;
-        }
-    }
-    
     return '';
 }
 
-// Оригинальная функция для YouTube (оставлена для обратной совместимости)
-export function getThumbnailFromId(id) {
-    return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+// Асинхронная версия для получения превью с реальными данными
+export async function getMedalThumbnailFromId(medalId) {
+    const clipData = await getMedalClipData(medalId);
+    return clipData?.thumbnailUrl || `https://medal.tv/clips/${medalId}/thumbnail`;
+}
+
+export function localize(num) {
+    return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
 }
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -158,7 +118,46 @@ export function shuffle(array) {
     return array;
 }
 
-// Локализация числа (оригинальная функция)
-export function localize(num) {
-    return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
+// Дополнительная функция для пакетной обработки видео URL
+export async function getVideoInfo(url) {
+    const type = getVideoType(url);
+    
+    if (type === 'youtube') {
+        const youtubeId = getYoutubeIdFromUrl(url);
+        return {
+            type: 'youtube',
+            id: youtubeId,
+            embedUrl: `https://www.youtube.com/embed/${youtubeId}`,
+            thumbnailUrl: getThumbnailFromId(youtubeId, 'youtube')
+        };
+    } else if (type === 'medal') {
+        const medalId = getMedalIdFromUrl(url);
+        const clipData = await getMedalClipData(medalId);
+        
+        return {
+            type: 'medal',
+            id: medalId,
+            embedUrl: `https://medal.tv/clips/${medalId}/embed`,
+            thumbnailUrl: clipData?.thumbnailUrl || getThumbnailFromId(medalId, 'medal'),
+            title: clipData?.title,
+            views: clipData?.views,
+            duration: clipData?.duration,
+            userName: clipData?.userName
+        };
+    }
+    
+    return null;
 }
+
+// Пример использования:
+/*
+import { embed, getVideoInfo, getVideoType } from './video-utils.js';
+
+// Синхронное использование для получения embed URL
+const youtubeEmbed = embed('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+const medalEmbed = embed('https://medal.tv/clips/12345678');
+
+// Асинхронное использование для получения полной информации
+const videoInfo = await getVideoInfo('https://medal.tv/clips/12345678');
+console.log(videoInfo);
+*/
