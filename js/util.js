@@ -5,16 +5,67 @@ export function getYoutubeIdFromUrl(url) {
     )?.[1] ?? '';
 }
 
+// Функция для получения ID видео из Medal
+export function getMedalIdFromUrl(url) {
+    // Medal ссылки бывают в формате:
+    // https://medal.tv/clips/1234567890
+    // https://medal.tv/games/.../clips/1234567890
+    // https://medal.tv/embed/clips/1234567890
+    const match = url.match(/medal\.tv\/(?:embed\/)?(?:clips\/)?([a-zA-Z0-9]+)/);
+    return match?.[1] ?? '';
+}
+
+// Проверка, является ли ссылка Medal
+export function isMedalUrl(url) {
+    return url.includes('medal.tv') || url.includes('medal.com');
+}
+
+// Проверка, является ли ссылка YouTube
+export function isYoutubeUrl(url) {
+    return url.includes('youtube.com') || url.includes('youtu.be');
+}
+
+// Главная функция для создания embed
 export function embed(video) {
-    return `https://www.youtube.com/embed/${getYoutubeIdFromUrl(video)}`;
+    if (isMedalUrl(video)) {
+        const medalId = getMedalIdFromUrl(video);
+        return `https://medal.tv/embed/clips/${medalId}`;
+    }
+    
+    if (isYoutubeUrl(video)) {
+        return `https://www.youtube.com/embed/${getYoutubeIdFromUrl(video)}`;
+    }
+    
+    // Если ссылка не распознана, возвращаем как есть
+    return video;
+}
+
+// Функция для получения превью (миниатюры)
+export function getThumbnail(video) {
+    if (isMedalUrl(video)) {
+        const medalId = getMedalIdFromUrl(video);
+        // Medal предоставляет превью в формате:
+        return `https://medal.tv/embed/clips/${medalId}/thumbnail`;
+        // Альтернативно, можно использовать:
+        // return `https://medal.tv/clips/${medalId}/thumbnail`;
+    }
+    
+    if (isYoutubeUrl(video)) {
+        const youtubeId = getYoutubeIdFromUrl(video);
+        return getThumbnailFromId(youtubeId);
+    }
+    
+    // Дефолтное изображение, если не найдено
+    return 'https://via.placeholder.com/320x180?text=No+Preview';
+}
+
+// Оригинальная функция для YouTube (оставляем для обратной совместимости)
+export function getThumbnailFromId(id) {
+    return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
 
 export function localize(num) {
     return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
-}
-
-export function getThumbnailFromId(id) {
-    return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
