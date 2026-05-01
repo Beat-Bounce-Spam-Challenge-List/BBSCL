@@ -1,12 +1,21 @@
-// YouTube функции (ваши, без изменений)
+// YouTube функции (ваши, с небольшим изменением - добавим защиту)
 // https://stackoverflow.com/questions/3452546/how-do-i-get-the-youtube-video-id-from-a-url
 export function getYoutubeIdFromUrl(url) {
+    // Защита: если это Medal ссылка - сразу возвращаем пустую строку
+    if (url.includes('medal.tv')) return '';
+    
     return url.match(
         /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/,
     )?.[1] ?? '';
 }
 
 export function embed(video) {
+    // Защита: если это Medal ссылка - возвращаем пустую строку
+    if (video.includes('medal.tv')) {
+        console.warn('embed() не работает с Medal.tv. Используйте getMedalPreview()');
+        return '';
+    }
+    
     return `https://www.youtube.com/embed/${getYoutubeIdFromUrl(video)}`;
 }
 
@@ -38,25 +47,22 @@ export function shuffle(array) {
     return array;
 }
 
-// ========== MEDAL.TV ФУНКЦИИ (отдельно, не смешиваются с YouTube) ==========
+// ========== MEDAL.TV ФУНКЦИИ (отдельно) ==========
 
-// Получить ID клипа из URL Medal.tv
 export function getMedalIdFromUrl(url) {
     if (!url || typeof url !== 'string') return '';
     const match = url.match(/medal\.tv\/(?:clip|clips|watch)\/(\d+)/);
     return match ? match[1] : '';
 }
 
-// Получить URL превью Medal.tv
 export function getMedalThumbnailFromId(id) {
     if (!id) return '';
     return `https://medal.tv/clip/${id}/thumbnail.jpg`;
 }
 
-// Получить HTML для превью Medal.tv с кнопкой (без iframe, без YouTube кода)
 export function getMedalPreview(url, options = {}) {
     const clipId = getMedalIdFromUrl(url);
-    if (!clipId) return '<div class="error">Неверная ссылка Medal.tv</div>';
+    if (!clipId) return '<div style="color: red; padding: 20px;">❌ Неверная ссылка Medal.tv</div>';
     
     const width = options.width || 640;
     
@@ -66,29 +72,29 @@ export function getMedalPreview(url, options = {}) {
                 src="${getMedalThumbnailFromId(clipId)}" 
                 alt="Medal.tv video preview"
                 style="width: 100%; height: auto; display: block;"
-                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'200\'%3E%3Crect width=\'100%25\' height=\'200\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23fff\' dy=\'.3em\' font-family=\'Arial\'%3EПревью недоступно%3C/text%3E%3C/svg%3E'"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'200\'%3E%3Crect width=\'100%25\' height=\'200\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23fff\' dy=\'.3em\' font-family=\'Arial\'%3E▶ Превью недоступно%3C/text%3E%3C/svg%3E'"
             >
-            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5);">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); backdrop-filter: blur(2px);">
                 <a 
                     href="${url}" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    style="background: #ff4757; color: white; padding: 12px 28px; border-radius: 30px; 
-                           text-decoration: none; font-family: Arial, sans-serif; font-weight: bold;
-                           font-size: 16px; display: inline-flex; align-items: center; gap: 8px;
-                           transition: transform 0.2s, background 0.2s;"
+                    style="background: #ff4757; color: white; padding: 14px 32px; border-radius: 40px; 
+                           text-decoration: none; font-family: system-ui, Arial, sans-serif; font-weight: bold;
+                           font-size: 18px; display: inline-flex; align-items: center; gap: 10px;
+                           transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.3);"
                     onmouseover="this.style.transform='scale(1.05)'; this.style.background='#ff3344'"
                     onmouseout="this.style.transform='scale(1)'; this.style.background='#ff4757'"
                 >
-                    <span style="font-size: 20px;">▶</span> Смотреть на Medal.tv
+                    <span style="font-size: 22px;">▶</span> Смотреть на Medal.tv
                 </a>
             </div>
         </div>
     `;
 }
 
-// Универсальная функция для любого видео (если нужна)
-export function getAnyVideoHTML(url, options = {}) {
+// Универсальная функция (сама определит тип)
+export function getVideoHTML(url, options = {}) {
     // Medal.tv
     if (url.includes('medal.tv')) {
         return getMedalPreview(url, options);
@@ -99,8 +105,8 @@ export function getAnyVideoHTML(url, options = {}) {
         const embedUrl = embed(url);
         const width = options.width || 640;
         const height = options.height || 360;
-        return `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="max-width: 100%;"></iframe>`;
+        return `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="max-width: 100%; border-radius: 8px;"></iframe>`;
     }
     
-    return '<div class="error">Неподдерживаемый формат видео</div>';
+    return '<div style="color: red; padding: 20px;">❌ Неподдерживаемый формат видео</div>';
 }
