@@ -1,6 +1,11 @@
-// util.js - Полная версия с автоматическим получением embed кода из Medal.tv
+// util.js - Полная версия с поддержкой API ключа Medal.tv и обратной совместимостью
 
-// Функции для YouTube
+// ========== НАСТРОЙКИ ==========
+// Сюда вставьте ваш API ключ от Medal.tv (если есть)
+// Получить можно здесь: https://medal.tv/developer
+const MEDAL_API_KEY = 'pub_V4KfwqZJyOK5FtQRDgIKjtnmcOGU9Lh4'; // Вставьте ваш API ключ сюда
+
+// ========== Функции для YouTube ==========
 export function getYoutubeIdFromUrl(url) {
     return url.match(
         /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/,
@@ -19,38 +24,54 @@ export function getThumbnailFromId(id) {
     return getYoutubeThumbnailFromId(id);
 }
 
-// Функции для Medal.tv
+// ========== Функции для Medal.tv ==========
 export function getMedalIdFromUrl(url) {
     const match = url.match(/medal\.tv\/(?:clips?|watch)\/(\d+)(?:\/[\w]+)?/);
     return match ? match[1] : '';
 }
 
-// Автоматическое получение embed кода через Medal.tv API
-export async function getMedalEmbedCode(url) {
+export function getMedalThumbnailFromId(id) {
+    return `https://medal.tv/clip/${id}/thumbnail.jpg`;
+}
+
+// Получение embed кода через API Medal.tv с поддержкой API ключа
+export async function getMedalEmbedCode(url, options = {}) {
     const clipId = getMedalIdFromUrl(url);
-    if (!clipId) return null;
+    if (!clipId) return { success: false, error: 'Invalid Medal.tv URL' };
     
     try {
-        // Метод 1: Используем официальное API Medal.tv
+        // Подготавливаем заголовки
+        const headers = {
+            'Content-Type': 'application/json',
+        };
+        
+        // Добавляем API ключ, если он предоставлен
+        const apiKey = options.apiKey || MEDAL_API_KEY;
+        if (apiKey) {
+            headers['Authorization'] = `Bearer ${apiKey}`;
+        }
+        
+        // Метод 1: Пробуем официальное API Medal.tv
         const apiUrl = `https://medal.tv/api/clip/${clipId}`;
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, { headers });
         
         if (response.ok) {
             const data = await response.json();
             
-            // Из API получаем embed URL или код
-            if (data.embedUrl) {
+            // Из API получаем embed URL
+            if (data.embedUrl || data.embed_code) {
+                const embedUrl = data.embedUrl || data.embed_code;
                 return {
                     success: true,
-                    embedUrl: data.embedUrl,
-                    embedCode: `<iframe src="${data.embedUrl}" width="640" height="360" frameborder="0" allow="autoplay" allowfullscreen></iframe>`,
-                    thumbnail: data.thumbnailUrl || `https://medal.tv/clip/${clipId}/thumbnail.jpg`,
+                    embedUrl: embedUrl,
+                    embedCode: `<iframe src="${embedUrl}" width="${options.width || 640}" height="${options.height || 360}" frameborder="0" allow="autoplay" allowfullscreen></iframe>`,
+                    thumbnail: data.thumbnailUrl || getMedalThumbnailFromId(clipId),
                     title: data.title || 'Medal.tv Clip'
                 };
             }
         }
         
-        // Метод 2: Парсим страницу (если API не сработал)
+        // Метод 2: Парсим страницу (fallback)
         const pageResponse = await fetch(`https://medal.tv/clip/${clipId}`);
         const html = await pageResponse.text();
         
@@ -61,14 +82,14 @@ export async function getMedalEmbedCode(url) {
                 success: true,
                 embedUrl: embedMatch[1],
                 embedCode: embedMatch[0],
-                thumbnail: `https://medal.tv/clip/${clipId}/thumbnail.jpg`,
+                thumbnail: getMedalThumbnailFromId(clipId),
                 title: 'Medal.tv Clip'
             };
         }
         
         return {
             success: false,
-            error: 'Embed code not found for this clip'
+            error: 'Embed code not found for this clip. The clip owner may have disabled embedding.'
         };
         
     } catch (error) {
@@ -80,61 +101,60 @@ export async function getMedalEmbedCode(url) {
     }
 }
 
-// Универсальная функция для получения embed кода (работает и для YouTube, и для Medal)
-export async function getEmbedCode(video, options = {}) {
+// ========== УНИВЕРСАЛЬНАЯ ФУНКЦИЯ embed (для обратной совместимости) ==========
+// ЭТО ТО, ЧТО ВАМ НУЖНО - функция embed работает и для YouTube, и для Medal
+export async function embed(video, options = {}) {
+    // Для Medal.tv
     if (video.includes('medal.tv')) {
-        const medalResult = await getMedalEmbedCode(video);
-        if (medalResult.success) {
-            // Можно модифицировать embed код с параметрами
-            if (Object.keys(options).length > 0) {
-                const url = new URL(medalResult.embedUrl);
-                Object.keys(options).forEach(key => {
-                    if (options[key] !== undefined) {
-                        url.searchParams.set(key, options[key] ? '1' : '0');
-                    }
-                });
-                return `<iframe src="${url.toString()}" width="${options.width || 640}" height="${options.height || 360}" frameborder="0" allow="autoplay" allowfullscreen></iframe>`;
+        const result = await getMedalEmbedCode(video, options);
+        if (result.success) {
+            // Если переданы параметры autoplay/muted/loop, добавляем их
+            if (options.autoplay !== undefined || options.muted !== undefined || options.loop !== undefined) {
+                const url = new URL(result.embedUrl);
+                if (options.autoplay !== undefined) url.searchParams.set('autoplay', options.autoplay ? '1' : '0');
+                if (options.muted !== undefined) url.searchParams.set('muted', options.muted ? '1' : '0');
+                if (options.loop !== undefined) url.searchParams.set('loop', options.loop ? '1' : '0');
+                return url.toString();
             }
-            return medalResult.embedCode;
+            return result.embedUrl;
         }
-        return `<div class="error">Cannot embed this Medal.tv clip: ${medalResult.error}</div>`;
-        
-    } else if (video.includes('youtube.com') || video.includes('youtu.be')) {
+        console.warn('Medal.tv embed failed:', result.error);
+        return '';
+    }
+    
+    // Для YouTube
+    if (video.includes('youtube.com') || video.includes('youtu.be')) {
+        return embedYoutube(video);
+    }
+    
+    return '';
+}
+
+// Получение полного HTML кода для вставки
+export async function getEmbedHTML(video, options = {}) {
+    if (video.includes('medal.tv')) {
+        const result = await getMedalEmbedCode(video, options);
+        if (result.success) {
+            // Модифицируем embed код с параметрами
+            let embedCode = result.embedCode;
+            if (options.autoplay !== undefined || options.muted !== undefined || options.loop !== undefined) {
+                const url = new URL(result.embedUrl);
+                if (options.autoplay !== undefined) url.searchParams.set('autoplay', options.autoplay ? '1' : '0');
+                if (options.muted !== undefined) url.searchParams.set('muted', options.muted ? '1' : '0');
+                if (options.loop !== undefined) url.searchParams.set('loop', options.loop ? '1' : '0');
+                embedCode = `<iframe src="${url.toString()}" width="${options.width || 640}" height="${options.height || 360}" frameborder="0" allow="autoplay" allowfullscreen></iframe>`;
+            }
+            return embedCode;
+        }
+        return getMedalFallbackEmbed(video, options);
+    }
+    
+    if (video.includes('youtube.com') || video.includes('youtu.be')) {
         const embedUrl = embedYoutube(video);
         return `<iframe src="${embedUrl}" width="${options.width || 640}" height="${options.height || 360}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     }
     
     return '<div class="error">Unsupported video URL</div>';
-}
-
-// Специальная функция для Medal.tv с кэшированием (чтобы не делать запрос каждый раз)
-const medalCache = new Map();
-
-export async function getMedalEmbedCached(url, options = {}) {
-    const clipId = getMedalIdFromUrl(url);
-    
-    // Проверяем кэш
-    if (medalCache.has(clipId) && !options.forceRefresh) {
-        const cached = medalCache.get(clipId);
-        if (Date.now() - cached.timestamp < 3600000) { // Кэш на 1 час
-            return cached.embedCode;
-        }
-    }
-    
-    // Получаем свежий embed код
-    const result = await getMedalEmbedCode(url);
-    
-    if (result.success) {
-        // Сохраняем в кэш
-        medalCache.set(clipId, {
-            embedCode: result.embedCode,
-            timestamp: Date.now()
-        });
-        return result.embedCode;
-    }
-    
-    // Fallback: показываем превью с ссылкой
-    return getMedalFallbackEmbed(url, options);
 }
 
 // Fallback вариант, если embed недоступен
@@ -145,7 +165,7 @@ export function getMedalFallbackEmbed(url, options = {}) {
     
     return `
         <div style="position: relative; width: ${width}px; height: ${height}px; background: #1a1a1a; border-radius: 8px; overflow: hidden;">
-            <img src="https://medal.tv/clip/${clipId}/thumbnail.jpg" 
+            <img src="${getMedalThumbnailFromId(clipId)}" 
                  style="width: 100%; height: 100%; object-fit: cover;" 
                  alt="Video preview">
             <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.6);">
@@ -169,11 +189,37 @@ export async function embedVideo(elementId, videoUrl, options = {}) {
         return;
     }
     
-    const embedCode = await getEmbedCode(videoUrl, options);
+    const embedCode = await getEmbedHTML(videoUrl, options);
     container.innerHTML = embedCode;
 }
 
-// Общие функции
+// Кэширование для Medal.tv
+const medalCache = new Map();
+
+export async function getMedalEmbedCached(url, options = {}) {
+    const clipId = getMedalIdFromUrl(url);
+    
+    if (medalCache.has(clipId) && !options.forceRefresh) {
+        const cached = medalCache.get(clipId);
+        if (Date.now() - cached.timestamp < 3600000) {
+            return cached.embedCode;
+        }
+    }
+    
+    const result = await getMedalEmbedCode(url, options);
+    
+    if (result.success) {
+        medalCache.set(clipId, {
+            embedCode: result.embedCode,
+            timestamp: Date.now()
+        });
+        return result.embedCode;
+    }
+    
+    return getMedalFallbackEmbed(url, options);
+}
+
+// ========== Общие функции ==========
 export function localize(num) {
     return num.toLocaleString(undefined, { minimumFractionDigits: 3 });
 }
@@ -191,10 +237,11 @@ export function shuffle(array) {
     return array;
 }
 
-// Глобальные функции для консоли
+// ========== Глобальные функции для консоли ==========
 if (typeof window !== 'undefined') {
-    window.getMedalEmbedCode = getMedalEmbedCode;
-    window.getEmbedCode = getEmbedCode;
+    window.embed = embed;
+    window.getEmbedHTML = getEmbedHTML;
     window.embedVideo = embedVideo;
+    window.getMedalEmbedCode = getMedalEmbedCode;
     window.getMedalEmbedCached = getMedalEmbedCached;
 }
