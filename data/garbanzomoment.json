@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "60",
     "records": [
+                  {
+        "user": "PepsiRBLX",
+            "link": "https://www.youtube.com/watch?v=0IbKH1rqD5c",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }
