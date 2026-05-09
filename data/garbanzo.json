@@ -18,6 +18,12 @@
             "link": "https://www.youtube.com/watch?v=5vQIcClsgwU",
             "percent": 100,
             "hz": 240
+        },
+          {
+        "user": "enzygmd",
+            "link": "https://youtu.be/c422z0TEjcg",
+            "percent": 100,
+            "hz": 60
         }
     ]
 }
