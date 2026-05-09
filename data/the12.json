@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+          {
+        "user": "UITankGD",
+            "link": "https://youtu.be/TcXxiUo0D2k",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
