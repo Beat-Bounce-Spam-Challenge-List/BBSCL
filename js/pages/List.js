@@ -103,7 +103,7 @@ export default {
                         Achieved the record without using hacks
                     </p>
                     <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
+                        You are allowed to use any methods of spamming, but certain methods are disallowed for specific levels.
                     </p>
                     <p>
                         Have either source audio or clicks/taps in the video. Edited audio only does not count
@@ -121,7 +121,7 @@ export default {
                         Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level
                     </p>
                      <p>
-                        Only 60 FPS or above is allowed on the list. 
+                        You must beat a level on its listed FPS (E.G. if a level requires 120 FPS, beating it on 60 or 30 will not be considered a completion).
                     </p>
                 </div>
             </div>
