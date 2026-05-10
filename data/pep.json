@@ -8,5 +8,17 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+          {
+        "user": "darklingthing2020",
+            "link": "https://youtu.be/zCaiBjPv1qg?si=3FaQSRX7Pg18jfEL",
+            "percent": 100,
+            "hz": 60
+        },
+       {
+        "user": "Mmichael10009",
+            "link": "https://medal.tv/games/roblox/clips/mG1LVs8i1yzmxDHDv?invite=cr-MSxNdkssNDc1NTQwODk0&v=8",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }
