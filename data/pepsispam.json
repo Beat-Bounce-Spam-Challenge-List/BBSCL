@@ -6,7 +6,13 @@
     "verifier": "PepsiRBLX",
     "verification": "https://www.youtube.com/watch?v=EsCn8Iy8g2c",
     "percentToQualify": 100,
-    "fps": "240",
+    "fps": "Any",
     "records": [
+         {
+        "user": "enzygmd",
+            "link": "https://youtu.be/d52Q3PO-gZM",
+            "percent": 100,
+            "hz": 240
+        },
     ]
 }
