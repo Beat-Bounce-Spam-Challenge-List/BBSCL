@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+         {
+        "user": "TimsDream",
+            "link": "https://youtu.be/XmIFXldpfMY?is=iwXYgRUWEEu-Zt11",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
