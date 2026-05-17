@@ -6,19 +6,7 @@
     "verifier": "enimeoww",
     "verification": "https://youtu.be/JLMEAhuE2xY",
     "percentToQualify": 100,
-    "fps": "Any",
+    "fps": "240",
     "records": [
-        {
-        "user": "z1mb1s",
-            "link": "https://youtu.be/JLMEAhuE2xY",
-            "percent": 100,
-            "hz": 60
-        },
-         {
-        "user": "darklingthing2020",
-            "link": "https://youtu.be/ub1CCANR1hE?si=KypWN5ncmL4QRVru",
-            "percent": 100,
-            "hz": 60
-        }
     ]
 }
