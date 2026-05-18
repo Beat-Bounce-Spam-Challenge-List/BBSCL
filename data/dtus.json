@@ -8,5 +8,17 @@
     "percentToQualify": 100,
     "fps": "60",
     "records": [
+        {
+        "user": "SheriffCache",
+            "link": "https://canary.discord.com/channels/1489347852986748968/1504819569624350791/1504819569624350791",
+            "percent": 100,
+            "hz": 60
+        },
+         {
+        "user": "hungvechai8",
+            "link": "https://youtu.be/t_VjXRdUHSg",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

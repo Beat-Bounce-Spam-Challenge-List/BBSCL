@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+         {
+        "user": "alexviper111",
+            "link": "https://www.youtube.com/watch?v=swVmF9Gz3y0",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

@@ -36,6 +36,12 @@
             "link": "https://m.youtube.com/watch?v=JXIVuQ6WjC8",
             "percent": 100,
             "hz": 60
+        },
+         {
+        "user": "alexviper111",
+            "link": "https://www.youtube.com/watch?v=sNVv8O7hvVM",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }

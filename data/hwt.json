@@ -18,7 +18,13 @@
         "user": "SecretlyServiceAgent",
             "link": "https://www.youtube.com/watch?v=6UuSO6JjLJ8",
             "percent": 100,
-            "hz": 165
+            "hz": 60
+        },
+         {
+        "user": "hungvechai8",
+            "link": "https://youtu.be/C0z9rOxPb2g",
+            "percent": 100,
+            "hz": 60
         }
     ]
 }
