@@ -1,5 +1,5 @@
 {
-    "id": 2050739,
+    "id": 2072490,
     "name": "hotmilkclip3",
     "author": "enzygmd",
     "creators": ["enzygmd"],
@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+                  {
+        "user": "z1mb1s",
+            "link": "https://medal.tv/games/roblox/clips/mRxLYipt4n0cci8hP?invite=cr-MSxVRmIsNDk3Nzc3MzQw",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

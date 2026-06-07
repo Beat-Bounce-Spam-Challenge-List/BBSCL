@@ -6,7 +6,19 @@
     "verifier": "fwogrealbb",
     "verification": "https://www.youtube.com/watch?v=Wog08IANkgc",
     "percentToQualify": 100,
-    "fps": "240",
+    "fps": "Any",
     "records": [
+         {
+        "user": "Mmichael10009",
+            "link": "https://youtu.be/TkrVnbx_N7M",
+            "percent": 100,
+            "hz": 240
+        },
+                  {
+        "user": "z1mb1s",
+            "link": "https://medal.tv/games/roblox/clips/mRxLYipt4n0cci8hP?invite=cr-MSxVRmIsNDk3Nzc3MzQw",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
