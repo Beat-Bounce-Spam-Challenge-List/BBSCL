@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+                  {
+        "user": "darklingthing2020",
+            "link": "https://youtu.be/mLH4F-Q0PHE?si=gEfswKq0Yhr_Sz4r",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

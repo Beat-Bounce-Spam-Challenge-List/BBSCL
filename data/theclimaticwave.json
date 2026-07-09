@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+                         {
+        "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=uF2J2uJmlzM",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

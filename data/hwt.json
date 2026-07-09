@@ -37,6 +37,18 @@
             "link": "https://www.youtube.com/watch?v=qpTKPnEaTyQ",
             "percent": 100,
             "hz": 60
-        }
+        },
+                 {
+        "user": "terriBlackel",
+            "link": "https://youtu.be/EOGbHP4Jz7o",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "enzygmd",
+            "link": "https://youtu.be/nac05XCdWWg",
+            "percent": 100,
+            "hz": 60
+        } 
     ]
 }

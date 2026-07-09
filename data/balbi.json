@@ -8,5 +8,23 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+                  {
+        "user": "enzygmd",
+            "link": "https://youtu.be/BG_c8XVvop4",
+            "percent": 100,
+            "hz": 165
+        },
+                 {
+        "user": "Mmichael10009",
+            "link": "https://youtu.be/FV7eZuO09uo",
+            "percent": 100,
+            "hz": 240
+        },
+                         {
+        "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=uF2J2uJmlzM",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
