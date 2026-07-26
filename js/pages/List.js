@@ -18,30 +18,38 @@ export default {
     components: { Spinner, LevelAuthors },
     template: `
         <main v-if="loading">
-            <Spinner></Spinner>
-        </main>
-        <main v-else class="page-list">
-            <div class="list-container">
-                <table class="list" v-if="list">
-                    <tr v-for="([level, err], i) in list">
-                        <td class="rank">
-                            <p v-if="i + 1 <= 100" class="type-label-lg">#{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg">Legacy</p>
-                        </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i">
-                                <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="level-container">
-                <div class="level" v-if="level">
-                    <h1>{{ level.name }}</h1>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
-                    <ul class="stats">
+      <Spinner></Spinner>
+    </main>
+    <main v-else class="page-list">
+      <div class="list-container">
+        <div class="search-bar">
+          <input type="text" v-model="searchQuery" placeholder="Search levels..." />
+        </div>
+        <table class="list" v-if="filteredList.length">
+          <tr v-for="(item, i) in filteredList" :key="i">
+            <td class="rank">
+              <p v-if="getOriginalRank(item[0]) <= 150" class="type-label-lg">
+                #{{ getOriginalRank(item[0]) }}
+              </p>
+              <p v-else class="type-label-lg">Legacy</p>
+            </td>
+            <td class="level" :class="{ active: selected === i, error: !item[0] }">
+              <button @click="selected = i">
+                <span class="type-label-lg">
+                  {{ item[0]?.name || \`Error (\${item[1]}.json)\` }}
+                </span>
+              </button>
+            </td>
+          </tr>
+        </table>
+        <p v-if="filteredList.length === 0">No levels match your search.</p>
+      </div>
+      <div class="level-container" v-if="selectedLevel">
+        <div class="level">
+          <h1>{{ selectedLevel.name }}</h1>
+          <LevelAuthors :author="selectedLevel.author" :creators="selectedLevel.creators" :verifier="selectedLevel.verifier"></LevelAuthors>
+          <iframe class="video" :src="embed(selectedLevel.showcase || selectedLevel.verification)" frameborder="0"></iframe>
+         <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
                             <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
@@ -146,21 +154,42 @@ export default {
         store
     }),
     computed: {
-        level() {
-            return this.list[this.selected][0];
-        },
-        video() {
-            if (!this.level.showcase) {
-                return embed(this.level.verification);
-            }
-
-            return embed(
-                this.toggledShowcase
-                    ? this.level.showcase
-                    : this.level.verification
-            );
-        },
+    filteredList() {
+      if (!this.searchQuery) return this.list;
+      return this.list.filter(([level]) => {
+        if (!level || !level.name) return false;
+        return level.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+      });
     },
+    selectedLevel() {
+      return this.filteredList[this.selected]
+        ? this.filteredList[this.selected][0]
+        : null;
+    },
+    selectedIndexInFullList() {
+      if (!this.selectedLevel) return this.selected + 1;
+      return (
+        this.list.findIndex(
+          (item) => item[0] && item[0].id === this.selectedLevel.id
+        ) + 1
+      );
+    },
+  },
+  watch: {
+    searchQuery() {
+      this.selected = 0;
+    },
+  },
+  methods: {
+    embed,
+    score,
+    getOriginalRank(level) {
+      let index = this.list.findIndex(
+        (item) => item[0] && item[0].id === level.id
+      );
+      return index >= 0 ? index + 1 : this.selected + 1;
+    },
+  },
     async mounted() {
         // Hide loading spinner
         this.list = await fetchList();
