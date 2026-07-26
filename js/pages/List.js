@@ -27,8 +27,8 @@ export default {
                 <div class="search-bar">
                      <input type="text" v-model="searchQuery" placeholder="Search levels..." />
                 </div>
-                <table class="list" v-if="list">
-                    <tr v-for="([level, err], i) in list">
+                <table class="list" v-if="filteredList.length">
+                    <tr v-for="([level, err], i) in filteredList" :key="i">
                         <td class="rank">
                             <p v-if="i + 1 <= 100" class="type-label-lg">#{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
@@ -42,31 +42,31 @@ export default {
                 </table>
                 <p v-if="filteredList.length === 0">No levels match your search.</p>
             </div>
-            <div class="level-container">
-                <div class="level" v-if="level">
-                    <h1>{{ level.name }}</h1>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+            <div class="level-container" v-if="selectedLevel">
+                <div class="level">
+                    <h1>{{ selectedLevel.name }}</h1>
+                    <LevelAuthors :author="selectedLevel.author" :creators="selectedLevel.creators" :verifier="selectedLevel.verifier"></LevelAuthors>
+                    <iframe class="video" id="videoframe" :src="embed(this.selectedLevel.verification)" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
-                            <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
+                            <p>{{ score(selected + 1, 100, selectedLevel.percentToQualify) }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p>{{ level.id }}</p>
+                            <p>{{ selectedLevel.id }}</p>
                         </li>
                         <li>
                               <div class="type-title-sm">FPS</div>
-                              <p>{{ level.fps || 'Any' }}</p>
+                              <p>{{ selectedLevel.fps || 'Any' }}</p>
                         </li>
                     </ul>
                     <h2>Records</h2>
-                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+                    <p v-if="selected + 1 <= 75"><strong>{{ selectedLevel.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
                     <p v-else>This level does not accept new records.</p>
                     <table class="records">
-                        <tr v-for="record in level.records" class="record">
+                        <tr v-for="record in selectedLevel.records" class="record">
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
                             </td>
@@ -83,7 +83,7 @@ export default {
                     </table>
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
-                    
+                    <p>(ノಠ益ಠ)ノ彡┻━┻</p>
                 </div>
             </div>
             <div class="meta-container">
@@ -148,46 +148,49 @@ export default {
         loading: true,
         selected: 0,
         errors: [],
+        searchQuery: "",
         roleIconMap,
         store
     }),
     computed: {
-    filteredList() {
-      if (!this.searchQuery) return this.list;
-      return this.list.filter(([level]) => {
-        if (!level || !level.name) return false;
-        return level.name.toLowerCase().includes(this.searchQuery.toLowerCase());
-      });
+        filteredList() {    
+            if (!this.searchQuery) return this.list;
+            return this.list.filter(([level, err]) => {
+                if (!level || !level.name) return false;
+                return level.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+            });
+        },
+
+        selectedLevel() {
+            return this.filteredList[this.selected]
+                ? this.filteredList[this.selected][0]
+                : null;
+        },
+
+        selectedIndexInFullList() {
+            if (!this.selectedLevel) return this.selected + 1;
+            return (
+                this.list.findIndex(
+                (item) => item[0] && item[0].id === this.selectedLevel.id
+                ) + 1
+            );
+        },
     },
-    selectedLevel() {
-      return this.filteredList[this.selected]
-        ? this.filteredList[this.selected][0]
-        : null;
+    watch: {
+        searchQuery() {
+            this.selected = 0;
+        },
     },
-    selectedIndexInFullList() {
-      if (!this.selectedLevel) return this.selected + 1;
-      return (
-        this.list.findIndex(
-          (item) => item[0] && item[0].id === this.selectedLevel.id
-        ) + 1
-      );
+    methods: {
+        embed,
+        score,
+        getOriginalRank(level) {
+            let index = this.list.findIndex(
+                (item) => item[0] && item[0].id === level.id
+            );
+            return index >= 0 ? index + 1 : this.selected + 1;
+        },
     },
-  },
-  watch: {
-    searchQuery() {
-      this.selected = 0;
-    },
-  },
-  methods: {
-    embed,
-    score,
-    getOriginalRank(level) {
-      let index = this.list.findIndex(
-        (item) => item[0] && item[0].id === level.id
-      );
-      return index >= 0 ? index + 1 : this.selected + 1;
-    },
-  },
     async mounted() {
         // Hide loading spinner
         this.list = await fetchList();
