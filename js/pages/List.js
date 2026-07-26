@@ -123,6 +123,15 @@ export default {
                      <p>
                         You must beat a level on its listed FPS (E.G. if a level requires 120 FPS, beating it on 60 or 30 will not be considered a completion).
                     </p>
+                     <p>
+                        The difficulty must be almost all in the spam of the level. You are allowed to put a triple spike or a timing at the end or beginning.
+                    </p>
+                     <p>
+                        It may say Spam "Challenge" List, however there is not really a time limit.
+                    </p>
+                     <p>
+                        To prevent list flooding, the levels must have effort put into them, such as good decoration or music.
+                    </p>
                 </div>
             </div>
         </main>

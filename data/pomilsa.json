@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "240",
     "records": [
+        {
+        "user": "terriBlackel",
+            "link": "https://www.youtube.com/watch?v=V6y19Bh34m0",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

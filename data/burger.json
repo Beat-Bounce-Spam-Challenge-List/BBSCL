@@ -8,5 +8,11 @@
     "percentToQualify": 100,
     "fps": "165+",
     "records": [
+        {
+        "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/zSmHfWhUUbM?si=j-FTk7gtj54VjIYk ",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

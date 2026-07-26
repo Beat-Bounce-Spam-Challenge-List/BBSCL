@@ -8,5 +8,77 @@
     "percentToQualify": 100,
     "fps": "60",
     "records": [
+                 {
+        "user": "hungvechai8",
+            "link": "https://youtu.be/fB5dyrNWNCw",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "Vonkj1415",
+            "link": "https://discord.com/channels/1489347852986748968/1524947302966624387/1524947302966624387",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "chtfsyt",
+            "link": "https://medal.tv/games/roblox/clips/n5yTlzcRjwVenquvY?invite=cr-MSxVM2osMzI4MTg0NTkz",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "enzygmd",
+            "link": "https://youtu.be/tj75YeALAWk",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "maxmorrison6",
+            "link": "https://discord.com/channels/1489347852986748968/1525483860861911240/1525483860861911240",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/vBM0EHZwNKE?si=FQDsxzwgFjlF2A8g",
+            "percent": 100,
+            "hz": 60
+        },
+                {
+        "user": "hypervoid123ms",
+            "link": "https://medal.tv/games/roblox/clips/n6nZFqr4xcepjE_CX",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "terriBlackel",
+            "link": "https://youtu.be/EOGbHP4Jz7o",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "Zden",
+            "link": "https://www.youtube.com/watch?v=8sDiX5EjXVQ",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "RyanLikesBowling",
+            "link": "https://medal.tv/games/roblox/clips/n7cMLla9J3c9UI931?invite=cr-MSxnMVEsNjY2NDI1NTYy",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "Dreamzy",
+            "link": "https://www.youtube.com/watch?v=QwApJLaG4gY",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+        "user": "Mmichael10009",
+            "link": "https://medal.tv/games/roblox/clips/n8aeJy5G3FL84PCJk?invite=cr-MSx6M2IsNDc1NTQwODk0",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

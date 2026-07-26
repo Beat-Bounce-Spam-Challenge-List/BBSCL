@@ -8,5 +8,17 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+        {
+        "user": "RyanLikesBowling",
+            "link": "https://medal.tv/games/roblox/clips/n7TVPnLcoAt01pHBB?invite=cr-MSxtanIsNjY2NDI1NTYy",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+        "user": "Dreamzy",
+            "link": "https://www.youtube.com/watch?v=QwApJLaG4gY",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }
