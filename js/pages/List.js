@@ -137,7 +137,7 @@ export default {
                         It may say Spam "Challenge" List, however there is not really a time limit.
                     </p>
                      <p>
-                        To prevent list flooding, the levels must have effort put into them, such as good decoration or music.
+                        From the 26.07.26, to prevent list flooding, the levels must have effort put into them, such as a bit of decoration and music.
                     </p>
                 </div>
             </div>
