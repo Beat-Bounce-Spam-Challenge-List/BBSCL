@@ -23,23 +23,24 @@ export default {
             <Spinner></Spinner>
         </main>
         <main v-else class="page-list">
-            <div class="list-container">
+            <div class="list-container" id="list-container">
                 <div class="search-bar">
-                     <input type="text" v-model="searchQuery" placeholder="Search levels..." />
+                     <input id="search-bar" type="text" v-model="searchQuery" placeholder="Search levels..." />
                 </div>
                 <table class="list" v-if="filteredList.length">
-                    <tr v-for="([level, err], i) in filteredList" :key="i">
+                    <tr v-for="([level, err], i) in filteredList" :key="i" :id="'level-' + getRank(level)">
                         <td class="rank">
-                            <p v-if="i + 1 <= 100" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-if="getRank(level) <= 100" class="type-label-lg">#{{ getRank(level) }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i">
+                        <td class="level" :class="{ 'active': selected == getRank(level)-1, 'error': !level }">
+                            <button @click="selected = getRank(level)-1">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                             </button>
                         </td>
                     </tr>
                 </table>
+                <button class="button" @click="showInList()" v-if="filteredList.length > 0 && searchQuery.replace(' ', '') != ''">Show in the list</button>
                 <p v-if="filteredList.length === 0">No levels match your search.</p>
             </div>
             <div class="level-container" v-if="selectedLevel">
@@ -82,9 +83,9 @@ export default {
                         </tr>
                     </table>
                 </div>
-                <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
-                    <p>(ノಠ益ಠ)ノ彡┻━┻</p>
-                </div>
+            </div>
+            <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
+                
             </div>
             <div class="meta-container">
                 <div class="meta">
@@ -162,33 +163,9 @@ export default {
         },
 
         selectedLevel() {
-            return this.filteredList[this.selected]
-                ? this.filteredList[this.selected][0]
+            return this.list[this.selected]
+                ? this.list[this.selected][0]
                 : null;
-        },
-
-        selectedIndexInFullList() {
-            if (!this.selectedLevel) return this.selected + 1;
-            return (
-                this.list.findIndex(
-                (item) => item[0] && item[0].id === this.selectedLevel.id
-                ) + 1
-            );
-        },
-    },
-    watch: {
-        searchQuery() {
-            this.selected = 0;
-        },
-    },
-    methods: {
-        embed,
-        score,
-        getOriginalRank(level) {
-            let index = this.list.findIndex(
-                (item) => item[0] && item[0].id === level.id
-            );
-            return index >= 0 ? index + 1 : this.selected + 1;
         },
     },
     async mounted() {
@@ -219,5 +196,24 @@ export default {
     methods: {
         embed,
         score,
+        getRank(level) {
+            if (!this.selectedLevel) return this.selected + 1;
+            return (
+                this.list.findIndex(
+                (item) => item[0] && item[0].id === level.id
+                ) + 1
+            );
+        },
+        showInList() {
+            let elementId = "level-" + this.getRank(this.selectedLevel)
+            document.getElementById("search-bar").value = ""
+            this.searchQuery = ""
+            
+            setTimeout(() => {
+                let element = document.getElementById(elementId)
+                document.getElementById("list-container").scrollTop = element.offsetTop
+            }, 100);
+            
+        }
     },
 };

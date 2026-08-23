@@ -149,3 +149,20 @@
     border-color: var(--color-primary);
     box-shadow: 0 0 4px var(--color-primary);
 }
+
+.page-list .list-container .button {
+    display: block;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
