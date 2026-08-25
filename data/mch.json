@@ -4,16 +4,15 @@
     "author": "enzygmd",
     "creators": ["enzygmd"],
     "verifier": "enzygmd",
-    "verification": "https://youtu.be/scOP8jkPPNs?si=yQ9eCMJVtm-kSamm",
+    "verification": "https://youtu.be",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
         {
-        "user": "z1mb1s",
-            "link": "https://medal.tv/games/roblox/clips/mRxLYipt4n0cci8hP?invite=cr-MSxVRmIsNDk3Nzc3MzQw",
+            "user": "Xabl0n",
+            "link": "https://medal.tv/games/roblox/clips/nlHw2yD2tO4MqwNHC?invite=cr-MSxrSjcsNDg1Mzg4MDQx",
             "percent": 100,
             "hz": 240
-        },
-        {
+        }
     ]
 }
