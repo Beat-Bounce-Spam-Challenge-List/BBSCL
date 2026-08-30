@@ -8,21 +8,21 @@
     "percentToQualify": 100,
     "fps": "60",
     "records": [
-         {
-        "user": "Mmichael10009",
+        {
+            "user": "Mmichael10009",
             "link": "https://youtu.be/x4Nh3Nnpw_s",
             "percent": 100,
             "hz": 60
         },
         {
-        "user": "Vonkj1415",
+            "user": "Vonkj1415",
             "link": "https://medal.tv/games/roblox/clips/n9ZMUEJuIUw_q9I4a",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "SecretlyServiceAgent",
-            "link": "https://youtu.be/LHbDGiYvQIw?si=94j3kxTvidDAgMyF"
+            "link": "https://youtu.be/LHbDGiYvQIw?si=94j3kxTvidDAgMyF",
             "percent": 100,
             "hz": 60
         }
