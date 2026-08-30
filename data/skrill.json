@@ -9,8 +9,14 @@
     "fps": "60",
     "records": [
         {
-        "user": "Vonkj1415",
+            "user": "Vonkj1415",
             "link": "https://medal.tv/games/roblox/clips/nbKeJ3VfIivTFl6nv",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be",
             "percent": 100,
             "hz": 60
         }
