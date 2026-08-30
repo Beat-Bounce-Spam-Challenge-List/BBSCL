@@ -4,15 +4,27 @@
     "author": "z1mb1s",
     "creators": ["jokeryupper"],
     "verifier": "z1mb1s",
-    "verification": "https://www.youtube.com/watch?v=zbq4043-YoI",
+    "verification": "https://youtube.com",
     "percentToQualify": 100,
     "fps": "60",
     "records": [
         {
-        "user": "Mmichael10009",
-            "link": "https://youtu.be/0pHB6swbLXk",
+            "user": "Mmichael10009",
+            "link": "https://youtu.be",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "Vonkj1415",
+            "link": "https://medal.tv/games/roblox/clips/nc3N8Xfh3vGI-DSpo",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be",
+            "percent": 100,
+            "hz": "60"
         }
     ]
 }
