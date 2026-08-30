@@ -4,49 +4,55 @@
     "author": "z1mb1s",
     "creators": ["TimsDream"],
     "verifier": "z1mb1s",
-    "verification": "https://www.youtube.com/watch?v=vyOR4fvskrQ",
+    "verification": "https://youtube.com",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
         {
-        "user": "enzygmd",
-            "link": "https://youtu.be/Si0NI5NGW8E",
+            "user": "enzygmd",
+            "link": "https://youtu.be",
             "percent": 100,
             "hz": 165
         },
         {
-        "user": "alexviper111",
-            "link": "https://www.youtube.com/watch?v=GtqyXinpqdY",
-            "percent": 100,
-            "hz": 240
-        },
-                 {
-        "user": "Mmichael10009",
-            "link": "https://youtu.be/icDKV-lleSQ",
-            "percent": 100,
-            "hz": 240
-        },
-                 {
-        "user": "terriBlackel",
-            "link": "https://youtu.be/EOGbHP4Jz7o",
-            "percent": 100,
-            "hz": 240
-        },
-                         {
-        "user": "Xabl0n",
-            "link": "https://www.youtube.com/watch?v=uF2J2uJmlzM",
-            "percent": 100,
-            "hz": 240
-        },
-                {
-        "user": "Rad",
-            "link": "https://www.youtube.com/watch?v=jVenIKKGtkc",
+            "user": "alexviper111",
+            "link": "https://youtube.com",
             "percent": 100,
             "hz": 240
         },
         {
-        "user": "RyanLikesBowling",
-            "link": "https://medal.tv/games/roblox/clips/n7DGo996CElanoaXj?invite=cr-MSxvbWcsNjY2NDI1NTYy",
+            "user": "Mmichael10009",
+            "link": "https://youtu.be",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "terriBlackel",
+            "link": "https://youtu.be",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://youtube.com",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Rad",
+            "link": "https://youtube.com",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "RyanLikesBowling",
+            "link": "https://medal.tv",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/mUYUj1_yc74?si=mdLjco8b-vdo6LpC",
             "percent": 100,
             "hz": 240
         }
