@@ -8,5 +8,29 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+        {
+            "user": "Xabl0n",
+            "link": " https://medal.tv/games/roblox/clips/nmRq9TY7UlSKzlRS2?invite=cr-MSw0SmksNDg1Mzg4MDQx",
+            "percent": 100,
+            "hz": "240"
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=JRrNa8vI8i4",
+            "percent": 100,
+            "hz": "180"
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1541898667349381201/1541898667349381201",
+            "percent": 100,
+            "hz": "240"
+        },
+        {
+            "user": "toidukoor",
+            "link": "https://youtu.be/yh6nGWB7xNA",
+            "percent": 100,
+            "hz": "180"
+        }
     ]
 }
