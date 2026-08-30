@@ -1,4 +1,4 @@
-{
+{{
     "id": 2518884,
     "name": "Eni Eating Pizza",
     "author": "Prim",
@@ -8,27 +8,27 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
-                  {
-        "user": "z1mb1s",
+        {
+            "user": "z1mb1s",
             "link": "https://medal.tv/games/roblox/clips/mRxLYipt4n0cci8hP?invite=cr-MSxVRmIsNDk3Nzc3MzQw",
             "percent": 100,
             "hz": 240
         },
-                         {
-        "user": "Xabl0n",
+        {
+            "user": "Xabl0n",
             "link": "https://www.youtube.com/watch?v=uF2J2uJmlzM",
             "percent": 100,
             "hz": 240
         },
         {
-        "user": "Dreamzy",
+            "user": "Dreamzy",
             "link": "https://www.youtube.com/watch?v=QwApJLaG4gY",
             "percent": 100,
             "hz": 240
         },
         {
             "user": "SecretlyServiceAgent",
-            "link": "https://youtu.be/mUYUj1_yc74?si=mdLjco8b-vdo6LpC"
+            "link": "https://youtu.be/mUYUj1_yc74?si=mdLjco8b-vdo6LpC",
             "percent": 100,
             "hz": 240
         }
