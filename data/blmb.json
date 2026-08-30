@@ -8,5 +8,47 @@
     "percentToQualify": 100,
     "fps": "60",
     "records": [
+        {
+            "user": "KitzyyWasTaken",
+            "link": "https://medal.tv/games/roblox/clips/nc6k61VpFao_qEw6I?invite=cr-MSxiWGksNTU0NzkwMDg5",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "wthunder",
+            "link": "https://medal.tv/games/roblox/clips/nc9H6cku5FLDIecST?invite=cr-MSxWOUksNjY2NDI1NTYy",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "gdplayer",
+            "link": "https://discord.com/channels/1489347852986748968/1531746430916624434/1531746430916624434",
+            "percent": 100,
+            "hz": "60"
+        },
+        {
+            "user": "hungvechai8",
+            "link": "https://youtu.be/OM1zStvZElQ",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "oogabooga",
+            "link": "https://youtu.be/IbscZovBZ7U?si=YVy42kMGW2MSrUbO",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "danilonaosei2",
+            "link": "https://youtu.be/7zHhreWIjW8",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1542173276548104272/1542173276548104272",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }
