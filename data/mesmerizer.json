@@ -8,5 +8,10 @@
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/hafXb4j__ew?si=W1nV9FpAMPwAk4kh",
+            "percent": 100,
+            "hz": 240
     ]
 }
