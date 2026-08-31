@@ -7,24 +7,66 @@
     "verification": "https://youtu.be/5lUX-nvFE3g",
     "percentToQualify": 100,
     "fps": "Any",
-    "records": [
-                 {
+        "records": [
+      {
         "user": "Mmichael10009",
-            "link": "https://www.youtube.com/watch?v=nHy12m7YQXw",
-            "percent": 100,
-            "hz": 240
-        },
-        {
+        "link": "https://youtube.com",
+        "percent": 100,
+        "hz": 240
+      },
+      {
         "user": "SecretlyServiceAgent",
-            "link": "https://youtu.be/-Wb2XQTp0Hk?si=u2KpuMZyABGkjgfJ",
-            "percent": 100,
-            "hz": 240
-        },
-                {
+        "link": "https://youtu.be",
+        "percent": 100,
+        "hz": 240
+      },
+      {
         "user": "Rad",
-            "link": "https://www.youtube.com/watch?v=jVenIKKGtkc",
-            "percent": 100,
-            "hz": 240
-        }
+        "link": "https://youtube.com",
+        "percent": 100,
+        "hz": 240
+      },
+      {
+        "user": "hungvechai8",
+        "link": "https://youtu.be",
+        "percent": 100,
+        "hz": 165
+      },
+      {
+        "user": "BlanKLolZ010",
+        "link": "https://youtube.com",
+        "percent": 100,
+        "hz": "Any"
+      },
+      {
+        "user": "Greysstorm/hell0_eagle",
+        "link": "https://youtu.be",
+        "percent": 100,
+        "hz": 144
+      },
+      {
+        "user": "coolman",
+        "link": "https://medal.tv",
+        "percent": 100,
+        "hz": 240
+      },
+      {
+        "user": "danilonaosei2",
+        "link": "https://youtu.be",
+        "percent": 100,
+        "hz": 60
+      },
+      {
+        "user": "pear",
+        "link": "https://medal.tv",
+        "percent": 100,
+        "hz": 240
+      },
+      {
+        "user": "m1c4hgd",
+        "link": "https://discord.com",
+        "percent": 100,
+        "hz": 240
+      }
     ]
-}
+
