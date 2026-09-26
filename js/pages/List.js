@@ -28,13 +28,13 @@ export default {
                      <input id="search-bar" type="text" v-model="searchQuery" placeholder="Search levels..." />
                 </div>
                 <table class="list" v-if="filteredList.length">
-                    <tr v-for="([level, err], i) in filteredList" :key="i" :id="'level-' + getRank(level)">
+                    <tr v-for="([level, err], i) in filteredList" :key="i" :id="'level-' + (getRank(level) || (i + 1))">
                         <td class="rank">
-                            <p v-if="getRank(level) <= 100" class="type-label-lg">#{{ getRank(level) }}</p>
+                            <p v-if="(getRank(level) || (i + 1)) <= 100" class="type-label-lg">#{{ getRank(level) || (i + 1) }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == getRank(level)-1, 'error': !level }">
-                            <button @click="selected = getRank(level)-1">
+                        <td class="level" :class="{ 'active': selected == (getRank(level) ? getRank(level)-1 : i), 'error': !level }">
+                            <button @click="selected = (getRank(level) ? getRank(level)-1 : i)">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                             </button>
                         </td>
@@ -47,7 +47,7 @@ export default {
                 <div class="level">
                     <h1>{{ selectedLevel.name }}</h1>
                     <LevelAuthors :author="selectedLevel.author" :creators="selectedLevel.creators" :verifier="selectedLevel.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="embed(this.selectedLevel.verification)" frameborder="0"></iframe>
+                    <iframe class="video" id="videoframe" :src="embed(this.selectedLevel.verification)" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope" allowfullscreen></iframe>
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
@@ -197,10 +197,10 @@ export default {
         embed,
         score,
         getRank(level) {
-            if (!this.selectedLevel) return this.selected + 1;
+            if (!level) return 0;
             return (
                 this.list.findIndex(
-                (item) => item[0] && item[0].id === level.id
+                    (item) => item && item[0] && item[0].id === level.id,
                 ) + 1
             );
         },

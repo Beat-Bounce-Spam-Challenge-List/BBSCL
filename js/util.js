@@ -6,14 +6,14 @@ export function getYoutubeIdFromUrl(url) {
 }
 
 export function getMedalClipId(url) {
-    return url.match(/medal\.tv\/(?:[^\/]+\/)?clips\/([a-zA-Z0-9_-]+)/)?.[1] ?? '';
+    return url.match(/medal\.tv\/(?:[^\/]+\/)*(?:clips|clip)\/([a-zA-Z0-9_-]+)/)?.[1] ?? '';
 }
 
 export function embed(video) {
     if (!video) return '';
     if (video.includes('medal.tv')) {
         const clipId = getMedalClipId(video);
-        return clipId ? `https://medal.tv/clip/${clipId}?autoplay=0&muted=0&loop=0` : video;
+        return clipId ? `https://medal.tv/games/roblox/clip/${clipId}` : video;
     }
     return `https://www.youtube.com/embed/${getYoutubeIdFromUrl(video)}`;
 }
