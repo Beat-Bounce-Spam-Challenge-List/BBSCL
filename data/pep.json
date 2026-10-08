@@ -85,6 +85,18 @@
             "link": "https://youtu.be/mUYUj1_yc74?si=mdLjco8b-vdo6LpC",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=SmshbnSohbc",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1542210140416253962",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }

@@ -8,5 +8,35 @@
     "percentToQualify": 100,
     "fps": "240",
     "records": [
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=SmshbnSohbc",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=j6IxXX-PZrU",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "popoffFlow",
+            "link": "https://youtu.be/qszSTEAVGmo",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1551261224597979296",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "MingSiangYT",
+            "link": "https://youtu.be/nvjoO1U0vMc?si=emjpcPliE2e6lGDi",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

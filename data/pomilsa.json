@@ -9,8 +9,26 @@
     "fps": "240",
     "records": [
         {
-        "user": "terriBlackel",
+            "user": "terriBlackel",
             "link": "https://www.youtube.com/watch?v=V6y19Bh34m0",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/qlawBvy4pbA?si=OPtlw190B1U0ubfr",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=j6IxXX-PZrU",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1549821077226655804",
             "percent": 100,
             "hz": 240
         }

@@ -12,6 +12,7 @@
 }
 .page-leaderboard > div {
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 .page-leaderboard .error-container {
     grid-row: 1;
@@ -29,6 +30,25 @@
 }
 .page-leaderboard .board-container {
     padding-inline: 1rem;
+}
+.page-leaderboard .board-container .search-bar {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.page-leaderboard .board-container .search-bar input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-border, #ccc);
+    border-radius: 0.5rem;
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+.page-leaderboard .board-container .search-bar input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 4px var(--color-primary);
 }
 .page-leaderboard .board {
     table-layout: auto;
@@ -55,21 +75,52 @@
     text-align: start;
     word-break: normal;
     overflow-wrap: anywhere;
+    transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s ease;
 }
 .page-leaderboard .board .user button:hover {
     background-color: var(--color-background-hover);
     color: var(--color-on-background-hover);
     cursor: pointer;
+    transform: translate3d(4px, 0, 0);
 }
 .page-leaderboard .board .user.active button {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
+    transform: translate3d(6px, 0, 0);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
 }
+.page-leaderboard .board tr {
+    animation: boardRowFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes boardRowFade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .page-leaderboard .player {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     padding-right: 2rem;
+    animation: fadeInPlayer 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInPlayer {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 .page-leaderboard .player .table {
     table-layout: fixed;

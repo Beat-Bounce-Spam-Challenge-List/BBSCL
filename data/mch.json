@@ -2,12 +2,20 @@
     "id": 2749960,
     "name": "meowpau chal nerf",
     "author": "enzygmd",
-    "creators": ["enzygmd"],
+    "creators": [
+        "enzygmd"
+    ],
     "verifier": "enzygmd",
-    "verification": "https://youtu.be",
+    "verification": "https://youtu.be/scOP8jkPPNs?si=yQ9eCMJVtm-kSamm",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
+        {
+            "user": "z1mb1s",
+            "link": "https://medal.tv/games/roblox/clips/mRxLYipt4n0cci8hP?invite=cr-MSxVRmIsNDk3Nzc3MzQw",
+            "percent": 100,
+            "hz": 240
+        },
         {
             "user": "Xabl0n",
             "link": "https://medal.tv/games/roblox/clips/nlHw2yD2tO4MqwNHC?invite=cr-MSxrSjcsNDg1Mzg4MDQx",

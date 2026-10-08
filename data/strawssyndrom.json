@@ -9,10 +9,16 @@
     "fps": "Any",
     "records": [
           {
-        "user": "enzygmd",
+            "user": "enzygmd",
             "link": "https://www.youtube.com/watch?v=dtHdOUkzaWc",
             "percent": 100,
             "hz": 165
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/etePwgpNVNo?si=iwPrdb3cjPAfCeo6",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }

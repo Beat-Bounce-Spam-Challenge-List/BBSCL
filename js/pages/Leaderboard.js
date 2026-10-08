@@ -11,6 +11,7 @@ export default {
         leaderboard: [],
         loading: true,
         selected: 0,
+        searchQuery: '',
         err: [],
     }),
     template: `
@@ -25,24 +26,28 @@ export default {
                     </p>
                 </div>
                 <div class="board-container">
-                    <table class="board">
-                        <tr v-for="(ientry, i) in leaderboard">
+                    <div class="search-bar">
+                        <input id="leaderboard-search" type="text" v-model="searchQuery" placeholder="Search player..." />
+                    </div>
+                    <table class="board" v-if="filteredLeaderboard.length">
+                        <tr v-for="(ientry, i) in filteredLeaderboard">
                             <td class="rank">
-                                <p class="type-label-lg">#{{ i + 1 }}</p>
+                                <p class="type-label-lg">#{{ getRank(ientry) }}</p>
                             </td>
                             <td class="total">
                                 <p class="type-label-lg">{{ localize(ientry.total) }}</p>
                             </td>
-                            <td class="user" :class="{ 'active': selected == i }">
-                                <button @click="selected = i">
+                            <td class="user" :class="{ 'active': selected == getIndex(ientry) }">
+                                <button @click="selected = getIndex(ientry)">
                                     <span class="type-label-lg">{{ ientry.user }}</span>
                                 </button>
                             </td>
                         </tr>
                     </table>
+                    <p v-else style="padding: 1rem; color: #888;">No players found.</p>
                 </div>
                 <div class="player-container">
-                    <div class="player">
+                    <div class="player" :key="entry ? entry.user : selected">
                         <h1>#{{ selected + 1 }} {{ entry.user }}</h1>
                         <h3>{{ entry.total }}</h3>
                         <h2 v-if="entry.verified.length > 0">Verified ({{ entry.verified.length}})</h2>
@@ -96,6 +101,11 @@ export default {
         entry() {
             return this.leaderboard[this.selected];
         },
+        filteredLeaderboard() {
+            if (!this.searchQuery) return this.leaderboard;
+            const q = this.searchQuery.toLowerCase().trim();
+            return this.leaderboard.filter(e => e.user && e.user.toLowerCase().includes(q));
+        },
     },
     async mounted() {
         const [leaderboard, err] = await fetchLeaderboard();
@@ -106,5 +116,11 @@ export default {
     },
     methods: {
         localize,
+        getRank(entry) {
+            return this.leaderboard.findIndex(e => e.user === entry.user) + 1;
+        },
+        getIndex(entry) {
+            return this.leaderboard.findIndex(e => e.user === entry.user);
+        },
     },
 };

@@ -8,5 +8,23 @@
     "percentToQualify": 100,
     "fps": "240",
     "records": [
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=ixVeRKN_0zg",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/C4T-dtG3_AM?si=Nf3ZvQoX_cbACTYo",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "river612544",
+            "link": "https://youtu.be/S2Wkyk5dI38",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

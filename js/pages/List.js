@@ -25,7 +25,12 @@ export default {
         <main v-else class="page-list">
             <div class="list-container" id="list-container">
                 <div class="search-bar">
-                     <input id="search-bar" type="text" v-model="searchQuery" placeholder="Search levels..." />
+                     <input id="search-bar" type="text" v-model="searchQuery" placeholder="Search levels, author, verifier, ID..." />
+                </div>
+                <div class="fps-filter">
+                    <button class="filter-btn" :class="{ 'active': fpsFilter === 'all' }" @click="fpsFilter = 'all'">All</button>
+                    <button class="filter-btn" :class="{ 'active': fpsFilter === '60' }" @click="fpsFilter = '60'">60 FPS</button>
+                    <button class="filter-btn" :class="{ 'active': fpsFilter === 'any' }" @click="fpsFilter = 'any'">Any FPS</button>
                 </div>
                 <table class="list" v-if="filteredList.length">
                     <tr v-for="([level, err], i) in filteredList" :key="i" :id="'level-' + (getRank(level) || (i + 1))">
@@ -44,7 +49,7 @@ export default {
                 <p v-if="filteredList.length === 0">No levels match your search.</p>
             </div>
             <div class="level-container" v-if="selectedLevel">
-                <div class="level">
+                <div class="level" :key="selectedLevel.id || selected">
                     <h1>{{ selectedLevel.name }}</h1>
                     <LevelAuthors :author="selectedLevel.author" :creators="selectedLevel.creators" :verifier="selectedLevel.verifier"></LevelAuthors>
                     <iframe class="video" id="videoframe" :src="embed(this.selectedLevel.verification)" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope" allowfullscreen></iframe>
@@ -150,15 +155,38 @@ export default {
         selected: 0,
         errors: [],
         searchQuery: "",
+        fpsFilter: "all",
         roleIconMap,
         store
     }),
     computed: {
         filteredList() {    
-            if (!this.searchQuery) return this.list;
-            return this.list.filter(([level, err]) => {
-                if (!level || !level.name) return false;
-                return level.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+            let result = this.list;
+
+            if (this.fpsFilter !== "all") {
+                result = result.filter(([level, err]) => {
+                    if (!level) return false;
+                    const levelFps = String(level.fps || "Any").toLowerCase().trim();
+                    if (this.fpsFilter === "60") {
+                        return levelFps === "60";
+                    } else if (this.fpsFilter === "any") {
+                        return levelFps !== "60";
+                    }
+                    return true;
+                });
+            }
+
+            if (!this.searchQuery) return result;
+
+            const q = this.searchQuery.toLowerCase().trim();
+            return result.filter(([level, err]) => {
+                if (!level) return false;
+                const matchName = level.name && level.name.toLowerCase().includes(q);
+                const matchAuthor = level.author && level.author.toLowerCase().includes(q);
+                const matchVerifier = level.verifier && level.verifier.toLowerCase().includes(q);
+                const matchId = level.id && String(level.id).includes(q);
+                const matchCreators = Array.isArray(level.creators) && level.creators.some(c => c.toLowerCase().includes(q));
+                return matchName || matchAuthor || matchVerifier || matchId || matchCreators;
             });
         },
 
@@ -205,15 +233,16 @@ export default {
             );
         },
         showInList() {
-            let elementId = "level-" + this.getRank(this.selectedLevel)
-            document.getElementById("search-bar").value = ""
-            this.searchQuery = ""
+            let elementId = "level-" + this.getRank(this.selectedLevel);
+            document.getElementById("search-bar").value = "";
+            this.searchQuery = "";
             
             setTimeout(() => {
-                let element = document.getElementById(elementId)
-                document.getElementById("list-container").scrollTop = element.offsetTop
+                let element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }, 100);
-            
         }
     },
 };

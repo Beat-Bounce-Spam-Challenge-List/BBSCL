@@ -8,5 +8,95 @@
     "percentToQualify": 100,
     "fps": "240",
     "records": [
+        {
+            "user": "Vonkj1415",
+            "link": "https://discord.com/channels/1489347852986748968/1531362443400319139/1531362443400319139",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=Lb3hNBCnD2U",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/VkwYBOz0JXQ?si=v2SDAuLrxMdJl9t_",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "hungvechai8",
+            "link": "https://youtu.be/LN3np9AyHZY",
+            "percent": 100,
+            "hz": 144
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=j6IxXX-PZrU",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "i love cats",
+            "link": "https://medal.tv/games/roblox/clips/ndR4PFrFHSEv3KAja?invite=cr-MSxLTFosNjI4NjU0NTI1",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "coolman",
+            "link": "https://medal.tv/games/screen-capture/clips/nBq7jDj7CNb6Yy6GR?invite=cr-MSxRQzIsNDE5NTY4NjUy",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "popoffFlow",
+            "link": "https://youtu.be/R0CpR0nhdPs",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "pear",
+            "link": "https://medal.tv/games/roblox/clips/nhwmnqCd03NISBny5?invite=cr-MSxOQjAsNDkzNzc1OTgx",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "terriBlackel",
+            "link": "https://youtu.be/K8gkmYh8Il4",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "river612544",
+            "link": "https://www.youtube.com/watch?v=b03hNrWwMIE",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Star ST4RR",
+            "link": "https://discord.com/channels/1489347852986748968/1541836530652549223",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1541906716805824618",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "vorvexy",
+            "link": "https://discord.com/channels/1489347852986748968/1542176478261809292",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "MingSiangYT",
+            "link": "https://youtu.be/nvjoO1U0vMc?si=emjpcPliE2e6lGDi",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

@@ -8,5 +8,17 @@
     "percentToQualify": 100,
     "fps": "120",
     "records": [
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=u-Nag2oKFE4",
+            "percent": 100,
+            "hz": 120
+        },
+        {
+            "user": "mhbw6",
+            "link": "https://youtu.be/-K-ucZ3k9Lg",
+            "percent": 100,
+            "hz": 120
+        }
     ]
 }

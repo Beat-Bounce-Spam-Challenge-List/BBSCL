@@ -9,5 +9,12 @@
     "verification": "https://www.youtube.com/watch?v=dNt44nrq5EU",
     "percentToQualify": 100,
     "fps": "Any",
-    "records": []
+    "records": [
+        {
+            "user": "Vonkj1415",
+            "link": "https://medal.tv/games/roblox/clips/nC5hH0qLNMkXl-_R3",
+            "percent": 100,
+            "hz": "60"
+        }
+    ]
 }

@@ -8,5 +8,17 @@
     "percentToQualify": 100,
     "fps": "60",
     "records": [
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/WU1M3cKUwXk?si=wBh9vnzweTBjnA7z",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://medal.tv/games/roblox/clips/noXU3r1G2vrTJwgUN?invite=cr-MSxvM1csNDg1Mzg4MDQx",
+            "percent": 100,
+            "hz": 60
+        }
     ]
 }

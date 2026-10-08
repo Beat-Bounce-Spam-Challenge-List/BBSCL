@@ -1,64 +1,102 @@
 {
     "id": 2506730,
     "name": "blinglikemicrosoftbing",
-    "author": "peepy",
-    "creators": ["peepy"],
-    "verifier": "peepy",
-    "verification": "https://youtube.com",
+    "author": "mintygd111",
+    "creators": [
+        "mintygd111"
+    ],
+    "verifier": "mintygd111",
+    "verification": "https://m.youtube.com/watch?v=ZaeU9DJQ8rM&ra=m",
     "percentToQualify": 100,
     "fps": "60",
     "records": [
         {
             "user": "KitzyyWasTaken",
-            "link": "https://medal.tv",
+            "link": "https://medal.tv/games/roblox/clips/nc6k61VpFao_qEw6I?invite=cr-MSxiWGksNTU0NzkwMDg5",
             "percent": 100,
             "hz": 60
         },
         {
-            "user": "wthunder",
-            "link": "https://medal.tv",
+            "user": "RyanLikesBowling",
+            "link": "https://medal.tv/games/roblox/clips/nc9H6cku5FLDIecST?invite=cr-MSxWOUksNjY2NDI1NTYy",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "gdplayer",
-            "link": "https://discord.com",
+            "link": "https://discord.com/channels/1489347852986748968/1531746430916624434/1531746430916624434",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "hungvechai8",
-            "link": "https://youtu.be",
+            "link": "https://youtu.be/OM1zStvZElQ",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "oogabooga",
-            "link": "https://youtu.be",
+            "link": "https://youtu.be/IbscZovBZ7U?si=YVy42kMGW2MSrUbO",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "danilonaosei2",
-            "link": "https://youtu.be",
+            "link": "https://youtu.be/7zHhreWIjW8",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "m1c4hgd",
-            "link": "https://discord.com",
+            "link": "https://discord.com/channels/1489347852986748968/1542173276548104272/1542173276548104272",
             "percent": 100,
             "hz": 60
         },
         {
-            "user": "popofffFlow",
+            "user": "popoffFlow",
             "link": "https://youtu.be/UvKliYIJR0A",
             "percent": 100,
             "hz": 60
         },
         {
             "user": "SecretlyServiceAgent",
-            "link": "https://youtu.be/mUYUj1_yc74?si=mdLjco8b-vdo6LpC",
+            "link": "https://youtu.be/jAdguRAupMo?si=0qkyo8lv1ALkA1ry",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=SmshbnSohbc",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=j6IxXX-PZrU",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "coolman",
+            "link": "https://medal.tv/games/screen-capture/clips/nBqrjvb8MG-7kvtpz?invite=cr-MSwzY3UsNDE5NTY4NjUy",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "Cr3eperGD",
+            "link": "https://medal.tv/games/roblox/clips/nrJEme5MsjOnifs52?invite=cr-MSw5eWQsMjI0NzcxMDc0",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "Sofieelias02",
+            "link": "https://medal.tv/games/roblox/clips/nyzvr9Mw4k6oX2pqp?invite=cr-MSxVWWQsNzk5NDA4ODQ4",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "bluetophatOSC",
+            "link": "https://www.youtube.com/watch?v=kn0MfVagKcY",
             "percent": 100,
             "hz": 60
         }

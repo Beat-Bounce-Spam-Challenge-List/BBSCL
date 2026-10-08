@@ -19,6 +19,18 @@
             "link": "https://www.youtube.com/watch?v=QwApJLaG4gY",
             "percent": 100,
             "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/WU1M3cKUwXk?si=wBh9vnzweTBjnA7z",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=ZlMTZzsBPno",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }

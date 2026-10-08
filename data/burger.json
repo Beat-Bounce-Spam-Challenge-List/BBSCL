@@ -9,8 +9,20 @@
     "fps": "165+",
     "records": [
         {
-        "user": "SecretlyServiceAgent",
+            "user": "SecretlyServiceAgent",
             "link": "https://youtu.be/zSmHfWhUUbM?si=j-FTk7gtj54VjIYk ",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://medal.tv/games/roblox/clips/nsYiRweEJGIJejY_w?invite=cr-MSx0NDksNDg1Mzg4MDQx",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=ZlMTZzsBPno",
             "percent": 100,
             "hz": 240
         }

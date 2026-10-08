@@ -74,10 +74,34 @@
             "hz": 240
         },
         {
-        "user": "Vonkj1415",
+            "user": "Vonkj1415",
             "link": "https://discord.com/channels/1489347852986748968/1529016478328688670/1529016478328688670   ",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://www.youtube.com/watch?v=SmshbnSohbc",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://www.youtube.com/watch?v=j6IxXX-PZrU",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "popoffFlow",
+            "link": "https://youtu.be/x7w05a8Dsqw",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "bluetophatOSC",
+            "link": "https://www.youtube.com/watch?v=LbuGefJA0F4",
+            "percent": 100,
+            "hz": 240
         }
     ]
 }

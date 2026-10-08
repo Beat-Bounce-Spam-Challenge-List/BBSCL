@@ -2,15 +2,17 @@
     "id": 2483615,
     "name": "trusted people",
     "author": "z1mb1s",
-    "creators": ["jokeryupper"],
+    "creators": [
+        "jokeryupper"
+    ],
     "verifier": "z1mb1s",
-    "verification": "https://youtube.com",
+    "verification": "https://www.youtube.com/watch?v=zbq4043-YoI",
     "percentToQualify": 100,
     "fps": "60",
     "records": [
         {
             "user": "Mmichael10009",
-            "link": "https://youtu.be",
+            "link": "https://youtu.be/0pHB6swbLXk",
             "percent": 100,
             "hz": 60
         },
@@ -24,7 +26,7 @@
             "user": "SecretlyServiceAgent",
             "link": "https://youtu.be/aVlx_jjvPKA?si=WhhLH684GhnZkDNC",
             "percent": 100,
-            "hz": "60"
+            "hz": 60
         }
     ]
 }

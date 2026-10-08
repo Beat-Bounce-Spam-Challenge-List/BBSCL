@@ -2,39 +2,59 @@
     "id": 2520827,
     "name": "elementary for z1mb1s",
     "author": "enzygmd",
-    "creators": ["enzygmd"],
+    "creators": [
+        "enzygmd"
+    ],
     "verifier": "enzygmd",
     "verification": "https://youtu.be/0MOwyuJ3Aa4",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
         {
-        "user": "Main_NoobYT",
+            "user": "Main_NoobYT",
             "link": "https://medal.tv/games/roblox/clips/mFNvf2Fguk8c1LnAH?invite=cr-MSw0am4sNTc2MDI0NTU5",
             "percent": 100,
             "hz": 240
         },
-                  {
-        "user": "z1mb1s",
+        {
+            "user": "z1mb1s",
             "link": "https://medal.tv/games/roblox/clips/mRxLYipt4n0cci8hP?invite=cr-MSxVRmIsNDk3Nzc3MzQw",
             "percent": 100,
             "hz": 240
         },
         {
-        "user": "Groovey_Slack",
+            "user": "Groovey_Slack",
             "link": "https://www.youtube.com/watch?v=qpTKPnEaTyQ",
             "percent": 100,
             "hz": 240
         },
-                {
-        "user": "Rad",
+        {
+            "user": "Rad",
             "link": "https://www.youtube.com/watch?v=jVenIKKGtkc",
             "percent": 100,
             "hz": 240
         },
-                {
-        "user": "river612544",
+        {
+            "user": "river612544",
             "link": "https://youtu.be/cU4XLTUfej0",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/TKnqtq-ZcQ0?si=3uN7pIRZ3cdNHSo3",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Xabl0n",
+            "link": "https://medal.tv/games/roblox/clips/nhC3MMeCt32yo6JTw?invite=cr-MSxqb2UsNDg1Mzg4MDQx",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1542152663716860054",
             "percent": 100,
             "hz": 240
         }

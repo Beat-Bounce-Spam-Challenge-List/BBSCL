@@ -9,8 +9,26 @@
     "fps": "Any",
     "records": [
         {
-        "user": "Groovey_Slack",
+            "user": "Groovey_Slack",
             "link": "https://www.youtube.com/watch?v=qpTKPnEaTyQ",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SecretlyServiceAgent",
+            "link": "https://youtu.be/8gGqI0-iz9g?si=hxs1FsWKp7XHOc0o",
+            "percent": 100,
+            "hz": 165
+        },
+        {
+            "user": "pear",
+            "link": "https://medal.tv/games/roblox/clips/nkNg5HBDd1xZZv9sl?invite=cr-MSxSeDEsNDkzNzc1OTgx",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "m1c4hgd",
+            "link": "https://discord.com/channels/1489347852986748968/1542118425114185749",
             "percent": 100,
             "hz": 240
         }

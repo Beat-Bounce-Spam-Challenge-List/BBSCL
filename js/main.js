@@ -1,9 +1,19 @@
 import routes from './routes.js';
 
+const initialDark = JSON.parse(localStorage.getItem('dark')) || false;
+if (initialDark) {
+    document.documentElement.classList.add('dark');
+}
+
 export const store = Vue.reactive({
-    dark: JSON.parse(localStorage.getItem('dark')) || false,
+    dark: initialDark,
     toggleDark() {
         this.dark = !this.dark;
+        if (this.dark) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
         localStorage.setItem('dark', JSON.stringify(this.dark));
     },
 });
