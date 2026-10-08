@@ -1,4 +1,7 @@
 import routes from './routes.js';
+import { enableGlobalSmoothWheel } from './util.js';
+
+enableGlobalSmoothWheel();
 
 const initialDark = JSON.parse(localStorage.getItem('dark')) || false;
 if (initialDark) {

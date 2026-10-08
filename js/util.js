@@ -45,3 +45,77 @@ export function shuffle(array) {
 
     return array;
 }
+
+/**
+ * Global momentum smooth wheel scroller for any scrollable element
+ */
+export function enableGlobalSmoothWheel() {
+    let currentTarget = null;
+    let targetScroll = 0;
+    let currentScroll = 0;
+    let isRunning = false;
+
+    function animate() {
+        if (!currentTarget) {
+            isRunning = false;
+            return;
+        }
+
+        const diff = targetScroll - currentScroll;
+        if (Math.abs(diff) < 0.5) {
+            currentScroll = targetScroll;
+            currentTarget.scrollTop = currentScroll;
+            isRunning = false;
+            return;
+        }
+
+        currentScroll += diff * 0.14;
+        currentTarget.scrollTop = currentScroll;
+        requestAnimationFrame(animate);
+    }
+
+    function findScrollable(el) {
+        let current = el;
+        while (current && current !== document.body && current !== document.documentElement) {
+            const style = window.getComputedStyle(current);
+            const overflowY = style.overflowY;
+            if ((overflowY === 'auto' || overflowY === 'scroll') && current.scrollHeight > current.clientHeight) {
+                return current;
+            }
+            current = current.parentElement;
+        }
+        return null;
+    }
+
+    function onWheel(e) {
+        const scrollable = findScrollable(e.target);
+        if (!scrollable) return;
+
+        const maxScroll = scrollable.scrollHeight - scrollable.clientHeight;
+        if (maxScroll <= 0) return;
+
+        e.preventDefault();
+
+        if (currentTarget !== scrollable || !isRunning) {
+            currentTarget = scrollable;
+            currentScroll = scrollable.scrollTop;
+            targetScroll = scrollable.scrollTop;
+        }
+
+        targetScroll += e.deltaY * 0.85;
+        targetScroll = Math.max(0, Math.min(maxScroll, targetScroll));
+
+        if (!isRunning) {
+            isRunning = true;
+            requestAnimationFrame(animate);
+        }
+    }
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    return () => {
+        window.removeEventListener('wheel', onWheel);
+    };
+}
+
+export const enableSmoothWheel = enableGlobalSmoothWheel;
+

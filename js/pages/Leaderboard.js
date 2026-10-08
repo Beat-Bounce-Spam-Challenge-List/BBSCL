@@ -113,14 +113,52 @@ export default {
         this.err = err;
         // Hide loading spinner
         this.loading = false;
+
+        this.$nextTick(() => {
+            this.initScrollReveal();
+        });
+    },
+    unmounted() {
+        if (this.observer) this.observer.disconnect();
     },
     methods: {
         localize,
+        initScrollReveal() {
+            if (this.observer) this.observer.disconnect();
+
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px 50px 0px"
+            });
+
+            this.$nextTick(() => {
+                const rows = document.querySelectorAll(".page-leaderboard .board tr, .page-leaderboard .player .table tr");
+                rows.forEach((row) => this.observer.observe(row));
+            });
+        },
         getRank(entry) {
             return this.leaderboard.findIndex(e => e.user === entry.user) + 1;
         },
         getIndex(entry) {
             return this.leaderboard.findIndex(e => e.user === entry.user);
         },
+    },
+    watch: {
+        filteredLeaderboard() {
+            this.$nextTick(() => {
+                this.initScrollReveal();
+            });
+        },
+        selected() {
+            this.$nextTick(() => {
+                this.initScrollReveal();
+            });
+        }
     },
 };

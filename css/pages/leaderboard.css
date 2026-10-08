@@ -55,6 +55,15 @@
     display: block;
     width: 100%;
 }
+.page-leaderboard .board tr {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1), transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+.page-leaderboard .board tr.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
 .page-leaderboard .board .rank {
     padding-block: 1rem;
     text-align: end;
@@ -124,6 +133,15 @@
 }
 .page-leaderboard .player .table {
     table-layout: fixed;
+}
+.page-leaderboard .player .table tr {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1), transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+.page-leaderboard .player .table tr.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 .page-leaderboard .player .table tr td:not(:last-child) {
     padding-right: 2rem;

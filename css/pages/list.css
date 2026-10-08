@@ -14,6 +14,15 @@
 .page-list .list {
     table-layout: auto;
 }
+.page-list .list tr {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1), transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+.page-list .list tr.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
 .page-list .list .rank {
     text-align: end;
     padding-right: 1rem;
@@ -108,8 +117,14 @@
     table-layout: fixed;
 }
 .page-list .level-container .level .records tr {
-    transition: background-color 0.15s ease;
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1), transform 0.35s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s ease;
     border-radius: 0.5rem;
+}
+.page-list .level-container .level .records tr.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 .page-list .level-container .level .records tr:hover {
     background-color: var(--color-background-hover);
@@ -133,6 +148,19 @@
 .page-list .meta-container .og a:hover,
 .page-list .level-container .level .records a:hover {
     text-decoration: underline;
+}
+.page-list .meta-container .meta p,
+.page-list .meta-container .meta h3,
+.page-list .meta-container .meta .editors {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1), transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+.page-list .meta-container .meta p.visible,
+.page-list .meta-container .meta h3.visible,
+.page-list .meta-container .meta .editors.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 .page-list .meta {
     display: flex;

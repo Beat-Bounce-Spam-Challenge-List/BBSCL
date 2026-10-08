@@ -220,10 +220,38 @@ export default {
         }
 
         this.loading = false;
+
+        this.$nextTick(() => {
+            this.initScrollReveal();
+        });
+    },
+    unmounted() {
+        if (this.observer) this.observer.disconnect();
     },
     methods: {
         embed,
         score,
+        initScrollReveal() {
+            if (this.observer) this.observer.disconnect();
+
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px 50px 0px"
+            });
+
+            this.$nextTick(() => {
+                const elements = document.querySelectorAll(
+                    "#list-container .list tr, .level-container .records tr, .meta-container .meta p, .meta-container .meta h3"
+                );
+                elements.forEach((el) => this.observer.observe(el));
+            });
+        },
         getRank(level) {
             if (!level) return 0;
             return (
@@ -243,6 +271,18 @@ export default {
                     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }, 100);
+        }
+    },
+    watch: {
+        filteredList() {
+            this.$nextTick(() => {
+                this.initScrollReveal();
+            });
+        },
+        selected() {
+            this.$nextTick(() => {
+                this.initScrollReveal();
+            });
         }
     },
 };

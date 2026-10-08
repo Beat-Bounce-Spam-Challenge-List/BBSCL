@@ -1,15 +1,17 @@
 {
     "id": 2730294,
     "name": "chernobyil",
-    "author": "enzygmd",
-    "creators": ["enzygmd"],
+    "author": "panvica2",
+    "creators": [
+        "panvica2"
+    ],
     "verifier": "enzygmd",
     "verification": "https://youtu.be/GjHdPqPV1R8",
     "percentToQualify": 100,
     "fps": "165+",
     "records": [
         {
-        "user": "SecretlyServiceAgent",
+            "user": "SecretlyServiceAgent",
             "link": "https://youtu.be/dUgyZennlhI?si=Lj029Rm3XhI8CHlU ",
             "percent": 100,
             "hz": 240
