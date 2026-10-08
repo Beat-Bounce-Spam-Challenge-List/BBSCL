@@ -9,5 +9,12 @@
     "verification": "https://youtu.be/FfAPqsQ29Wo",
     "percentToQualify": 100,
     "fps": "any",
-    "records": []
+    "records": [
+        {
+            "user": "zero",
+            "link": "https://medal.tv/games/roblox/clips/nG8MSTbq33FgF1xUs?invite=cr-MSxUamIsNDYwOTIwOTg2",
+            "percent": 100,
+            "hz": 160
+        }
+    ]
 }
