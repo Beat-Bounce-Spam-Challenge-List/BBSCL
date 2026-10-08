@@ -149,19 +149,6 @@
 .page-list .level-container .level .records a:hover {
     text-decoration: underline;
 }
-.page-list .meta-container .meta p,
-.page-list .meta-container .meta h3,
-.page-list .meta-container .meta .editors {
-    opacity: 0;
-    transform: translate3d(0, 16px, 0);
-    transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1), transform 0.35s cubic-bezier(0.2, 0, 0, 1);
-}
-.page-list .meta-container .meta p.visible,
-.page-list .meta-container .meta h3.visible,
-.page-list .meta-container .meta .editors.visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-}
 .page-list .meta {
     display: flex;
     flex-direction: column;

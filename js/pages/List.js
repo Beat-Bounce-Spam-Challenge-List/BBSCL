@@ -247,7 +247,7 @@ export default {
 
             this.$nextTick(() => {
                 const elements = document.querySelectorAll(
-                    "#list-container .list tr, .level-container .records tr, .meta-container .meta p, .meta-container .meta h3"
+                    "#list-container .list tr, .level-container .records tr"
                 );
                 elements.forEach((el) => this.observer.observe(el));
             });
