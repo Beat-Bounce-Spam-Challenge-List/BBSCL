@@ -109,6 +109,13 @@
             "link": "https://youtu.be/nvjoO1U0vMc?si=emjpcPliE2e6lGDi",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "gluetheknotaddme",
+            "link": "https://youtu.be/FN5pshltgOc?si=vUnz5hedLX0Zosqr",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
         }
     ]
 }

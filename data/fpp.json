@@ -183,6 +183,19 @@
             "link": "https://www.youtube.com/shorts/jgRR7lKJf1A",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "gluetheknotaddme",
+            "link": "https://youtu.be/I1V3ZN5RRek?si=7KJ543PnE9YbcxCs",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
+        },
+        {
+            "user": "GTALIVE555alt",
+            "link": "https://www.youtube.com/watch?v=equJNK9ngRA",
+            "percent": 100,
+            "hz": 60
         }
     ]
 }
