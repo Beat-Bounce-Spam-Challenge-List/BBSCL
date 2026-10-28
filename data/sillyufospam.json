@@ -210,6 +210,25 @@
             "link": "https://youtu.be/nvjoO1U0vMc?si=emjpcPliE2e6lGDi",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "zero",
+            "link": "https://medal.tv/games/roblox/clips/nJjtVQVWb8PZNKwr8?invite=cr-MSwzU2ssNDYwOTIwOTg2",
+            "percent": 100,
+            "hz": 165
+        },
+        {
+            "user": "sigmaboi",
+            "link": "https://discord.com/channels/1489347852986748968/1560219816013332530",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
+        },
+        {
+            "user": "Awake4Life",
+            "link": "https://www.youtube.com/watch?v=0eu2SiMJCGE",
+            "percent": 100,
+            "hz": 60
         }
     ]
 }

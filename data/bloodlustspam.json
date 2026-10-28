@@ -2,7 +2,9 @@
     "id": 3220575,
     "name": "Bloodlust spam",
     "author": "PepsiRBLX",
-    "creators": ["PepsiRBLX"],
+    "creators": [
+        "PepsiRBLX"
+    ],
     "verifier": "PepsiRBLX",
     "verification": "https://youtu.be/QhH-UOm9myw",
     "percentToQualify": 100,
@@ -17,6 +19,42 @@
         {
             "user": "BlankioIsCoolio",
             "link": "https://medal.tv/games/roblox/clips/nJxeNnx8ZALtMKIGI?invite=cr-MSxIZGwsNTU3MDc5NzQ3",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "AeRoMist",
+            "link": "https://youtu.be/cDNYSDiQHOY?si=ZkGPVseWY_qky8Bz",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "happyfish",
+            "link": "https://medal.tv/games/roblox/clips/nL4dFON7aVsGJbYAb?invite=cr-MSxmSTYsNjU4MjQxNjYw",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "zero",
+            "link": "https://medal.tv/games/roblox/clips/nLrBwk8wQYoQ4xOvN?invite=cr-MSxzQ1csNDYwOTIwOTg2",
+            "percent": 100,
+            "hz": 160
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLJvBtj7n2SsP1hlg?invite=cr-MSx0Y3ksNTk1MTI2MTg0",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "coolman",
+            "link": "https://www.youtube.com/watch?v=s-63u6-YMKc",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Fitlucaiepure",
+            "link": "https://medal.tv/games/roblox/clips/nOBRC9jlq9ypDH221?invite=cr-MSxlbVEsNjI4OTEwOTA4",
             "percent": 100,
             "hz": 240
         }

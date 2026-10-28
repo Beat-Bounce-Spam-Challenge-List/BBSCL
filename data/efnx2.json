@@ -2,7 +2,9 @@
     "id": 2566940,
     "name": "EFNx2",
     "author": "Main_NoobYT",
-    "creators": ["Main_NoobYT"],
+    "creators": [
+        "Main_NoobYT"
+    ],
     "verifier": "Main_NoobYT",
     "verification": "https://youtu.be/cE4G0kWItac?si=H5kQ1HDnuDQbw-_p",
     "percentToQualify": 100,
@@ -17,6 +19,12 @@
         {
             "user": "SecretlyServiceAgent",
             "link": "https://youtu.be/zl4EYB4rEBo?si=9lEJQs4dy8Bq96Z-",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLJ9QBt2ajKWZtvUG?invite=cr-MSxOZ08sNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

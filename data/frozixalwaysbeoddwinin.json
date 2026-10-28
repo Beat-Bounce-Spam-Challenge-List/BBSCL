@@ -2,10 +2,19 @@
     "id": 3200414,
     "name": "frozix always be oddwinin",
     "author": "fwogrealbb",
-    "creators": ["fwogrealbb"],
+    "creators": [
+        "fwogrealbb"
+    ],
     "verifier": "fwogrealbb",
     "verification": "https://youtu.be/DPOT68TrleE",
     "percentToQualify": 100,
     "fps": "Any",
-    "records": []
+    "records": [
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLINWEsBrBe59uu6d?invite=cr-MSxLZ3gsNTk1MTI2MTg0",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
 }

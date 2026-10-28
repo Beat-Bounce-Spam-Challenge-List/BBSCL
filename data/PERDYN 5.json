@@ -2,7 +2,9 @@
     "id": 2806793,
     "name": "PERDYN 5",
     "author": "enimeoww",
-    "creators": ["enimeoww"],
+    "creators": [
+        "enimeoww"
+    ],
     "verifier": "SecretlyServiceAgent",
     "verification": "https://youtu.be/ImHvlUvMbtc?si=K99GcGtxZMPaE3R-",
     "percentToQualify": 100,
@@ -11,6 +13,12 @@
         {
             "user": "Xabl0n",
             "link": "https://www.youtube.com/watch?v=j6IxXX-PZrU",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLJtf0i07ec8WjIdT?invite=cr-MSxnMEwsNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

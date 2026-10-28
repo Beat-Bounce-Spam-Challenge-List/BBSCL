@@ -196,6 +196,37 @@
             "link": "https://www.youtube.com/watch?v=equJNK9ngRA",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "Awake4Life",
+            "link": "https://www.youtube.com/watch?v=myVdU-c3azs",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "zero",
+            "link": "https://medal.tv/games/roblox/clips/nKg4BG1z8z5WZsbuA?invite=cr-MSxGWjMsNDYwOTIwOTg2",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "happyfish",
+            "link": "https://discord.com/channels/1489347852986748968/1562206512414461993",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "sigmaboi",
+            "link": "https://medal.tv/games/roblox/clips/nMc9Ai0tBLS2TW-oP",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
+        },
+        {
+            "user": "itzsogo",
+            "link": "https://www.youtube.com/watch?v=TxYw4OfL18k",
+            "percent": 100,
+            "hz": 60
         }
     ]
 }

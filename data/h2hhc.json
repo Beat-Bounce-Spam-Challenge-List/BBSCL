@@ -241,6 +241,26 @@
             "link": "https://www.youtube.com/shorts/jgRR7lKJf1A",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "MaxsaltBB",
+            "link": "https://www.youtube.com/watch?v=YBxhPK7OGV4",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
+        },
+        {
+            "user": "happyfish",
+            "link": "https://medal.tv/games/roblox/clips/nKXD6NrlqL665GwP3?invite=cr-MSxHM1QsNjU4MjQxNjYw",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "sigmaboi",
+            "link": "https://medal.tv/games/roblox/clips/nMdo2DaHAqkN8K3pn",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
         }
     ]
 }

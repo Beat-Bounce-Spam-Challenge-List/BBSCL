@@ -284,6 +284,19 @@
             "link": "https://www.youtube.com/watch?v=oVExAwI9SLI",
             "percent": 100,
             "hz": 60
+        },
+        {
+            "user": "Larpout",
+            "link": "https://discord.com/channels/1489347852986748968/1564112962778693662",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
+        },
+        {
+            "user": "itzsogo",
+            "link": "https://www.youtube.com/watch?v=0yJFkKdhL8Q",
+            "percent": 100,
+            "hz": 60
         }
     ]
 }

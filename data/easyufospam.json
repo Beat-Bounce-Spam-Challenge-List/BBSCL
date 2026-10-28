@@ -7,5 +7,18 @@
     "verification": "https://youtu.be/bmI_Ay0_ynQ",
     "percentToQualify": 100,
     "fps": "60",
-    "records": []
+    "records": [
+        {
+            "user": "BlankioIsCoolio",
+            "link": "https://medal.tv/games/roblox/clips/nKjdiwLAYrKI7nMf0?invite=cr-MSx2V3QsNTU3MDc5NzQ3",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "Mintzyn",
+            "link": "https://medal.tv/games/roblox/clips/nOLPPzGQtWIfk92G2?invite=cr-MSxXeVIsNjAxOTM1NDM2",
+            "percent": 100,
+            "hz": 60
+        }
+    ]
 }

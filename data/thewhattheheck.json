@@ -16,6 +16,19 @@
             "link": "https://medal.tv/games/roblox/clips/nBENHM8eU350U_4Gk",
             "percent": 100,
             "hz": "60"
+        },
+        {
+            "user": "PepsiRBLX",
+            "link": "https://www.youtube.com/watch?v=B7j6t5VzYX0",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "satio_rex3667",
+            "link": "https://vt.tiktok.com/ZSgF6MkMC/",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
         }
     ]
 }

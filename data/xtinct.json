@@ -19,6 +19,13 @@
             "link": "https://youtu.be/-K-ucZ3k9Lg",
             "percent": 100,
             "hz": 120
+        },
+        {
+            "user": "gluetheknotaddme",
+            "link": "https://discord.com/channels/1489347852986748968/1564764071335567421",
+            "percent": 100,
+            "hz": 60,
+            "mobile": true
         }
     ]
 }

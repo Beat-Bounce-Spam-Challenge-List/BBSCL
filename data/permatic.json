@@ -2,10 +2,19 @@
     "id": 3171875,
     "name": "permatic",
     "author": "Woodengod4",
-    "creators": ["Woodengod4"],
+    "creators": [
+        "Woodengod4"
+    ],
     "verifier": "Woodengod4",
     "verification": "https://youtu.be/8RwTwHckyUk",
     "percentToQualify": 100,
     "fps": "240",
-    "records": []
+    "records": [
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLkP7L8OiEqy8z7EM?invite=cr-MSwxSWcsNTk1MTI2MTg0",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
 }

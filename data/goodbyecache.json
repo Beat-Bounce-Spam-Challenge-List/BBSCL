@@ -2,7 +2,9 @@
     "id": 2672039,
     "name": "goodbye cache",
     "author": "enzygmd",
-    "creators": ["enzygmd"],
+    "creators": [
+        "enzygmd"
+    ],
     "verifier": "enzygmd",
     "verification": "https://youtu.be/KlWe4h7n1zo?si=hJwHJy2lb-hYtsdy",
     "percentToQualify": 100,
@@ -11,6 +13,12 @@
         {
             "user": "Xabl0n",
             "link": "https://medal.tv/games/roblox/clips/nikve8DlFfs-7uHQT?invite=cr-MSxiWWssNDg1Mzg4MDQx",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nM6QaJlldBPTYNNy4?invite=cr-MSxxeUEsNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

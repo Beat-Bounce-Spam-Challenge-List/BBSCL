@@ -7,5 +7,12 @@
     "verification": "https://youtu.be/vYq0NKXgiCo",
     "percentToQualify": 100,
     "fps": "60",
-    "records": []
+    "records": [
+        {
+            "user": "Boks",
+            "link": "https://youtu.be/fC0x-iLXHZM",
+            "percent": 100,
+            "hz": 60
+        }
+    ]
 }

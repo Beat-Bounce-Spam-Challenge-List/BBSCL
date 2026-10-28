@@ -2,7 +2,9 @@
     "id": 2947038,
     "name": "EMPEREON",
     "author": "panvica2",
-    "creators": ["panvica2"],
+    "creators": [
+        "panvica2"
+    ],
     "verifier": "SecretlyServiceAgent",
     "verification": "https://youtu.be/kYITsDFE0SM?si=W8b_1Z-OXqBHOgSN",
     "percentToQualify": 100,
@@ -11,6 +13,12 @@
         {
             "user": "Xabl0n",
             "link": "https://medal.tv/games/roblox/clips/nj3MKBNyQYIBdVGY9?invite=cr-MSxNdDUsNDg1Mzg4MDQx",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLk86G8BcGHeeeUq2?invite=cr-MSxsSUgsNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

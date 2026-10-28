@@ -2,20 +2,22 @@
     "id": 2193953,
     "name": "Unnerfed Aquamarine spam",
     "author": "z1mb1s",
-    "creators": ["TimsDream"],
+    "creators": [
+        "TimsDream"
+    ],
     "verifier": "z1mb1s",
     "verification": "https://youtu.be/dC-gZCGdEB4",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
-          {
-        "user": "PepsiRBLX",
+        {
+            "user": "PepsiRBLX",
             "link": "https://www.youtube.com/watch?v=dtHdOUkzaWc",
             "percent": 100,
             "hz": 240
         },
-         {
-        "user": "enzygmd",
+        {
+            "user": "enzygmd",
             "link": "https://youtu.be/C51BVgNaoBE?si=1yixX1LiCt7SNgC4",
             "percent": 100,
             "hz": 165
@@ -23,6 +25,12 @@
         {
             "user": "m1c4hgd",
             "link": "https://discord.com/channels/1489347852986748968/1549388362392018944",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLJjryHBaLsaWf5w8?invite=cr-MSxIcUcsNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

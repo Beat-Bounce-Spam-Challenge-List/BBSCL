@@ -2,14 +2,16 @@
     "id": 2207203,
     "name": "Whirlzbird yes extend",
     "author": "enzygmd",
-    "creators": ["enzygmd"],
+    "creators": [
+        "enzygmd"
+    ],
     "verifier": "enzygmd",
     "verification": "https://youtu.be/CHdc-BOZGJE?si=QURAZ9mloEILvtw4",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
-                         {
-        "user": "Xabl0n",
+        {
+            "user": "Xabl0n",
             "link": "https://www.youtube.com/watch?v=uF2J2uJmlzM",
             "percent": 100,
             "hz": 240
@@ -23,6 +25,12 @@
         {
             "user": "SecretlyServiceAgent",
             "link": "https://youtu.be/iwEzEJk67hU?si=JskROywx3z5aiBz1",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLJsgPkrD-ICdAUgC?invite=cr-MSxIMmYsNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

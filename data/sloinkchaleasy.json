@@ -2,27 +2,41 @@
     "id": 760223,
     "name": "sloink chal easy",
     "author": "Pixelation_GMD1",
-    "creators": ["Pixelation_GMD1"],
+    "creators": [
+        "Pixelation_GMD1"
+    ],
     "verifier": "Pixelation_GMD1",
     "verification": "https://www.youtube.com/watch?v=2ur-YCKO_rA",
     "percentToQualify": 100,
     "fps": "Any",
     "records": [
         {
-        "user": "z1mb1s",
+            "user": "z1mb1s",
             "link": "https://medal.tv/ru/games/roblox/clips/mD3bnHBVZ0GPTVJ8O?invite=cr-MSxHNUssNjM3NjkzMTIw",
             "percent": 100,
             "hz": 240
         },
-                  {
-        "user": "enzygmd",
+        {
+            "user": "enzygmd",
             "link": "https://youtu.be/Y1enH431hHM",
             "percent": 100,
             "hz": 165
         },
-                         {
-        "user": "Xabl0n",
+        {
+            "user": "Xabl0n",
             "link": "https://www.youtube.com/watch?v=uF2J2uJmlzM",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Boks",
+            "link": "https://youtu.be/i1feTKN-Ph4",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLIKsVjQdX5xMvy5q?invite=cr-MSxLQmksNTk1MTI2MTg0",
             "percent": 100,
             "hz": 240
         }

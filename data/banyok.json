@@ -1,0 +1,18 @@
+{
+    "id": 3242551,
+    "name": "Banyok",
+    "author": "Knux",
+    "creators": ["Knux", "Fpg2102"],
+    "verifier": "Knux",
+    "verification": "https://youtu.be/IaqFHiEsDVY",
+    "percentToQualify": 100,
+    "fps": "240",
+    "records": [
+        {
+            "user": "NicoDWZ",
+            "link": "https://medal.tv/games/roblox/clips/nKQoDhKAyCyWon-t6?invite=cr-MSxydWosMjMyNTAxODc0",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
+}

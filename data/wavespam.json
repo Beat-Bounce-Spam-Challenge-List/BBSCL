@@ -2,10 +2,19 @@
     "id": 3226417,
     "name": "Wave Spam 🤩",
     "author": "NicoDWZ",
-    "creators": ["NicoDWZ"],
+    "creators": [
+        "NicoDWZ"
+    ],
     "verifier": "NicoDWZ",
     "verification": "https://medal.tv/games/roblox/clips/nJsvHwKwLyTU-ZDa5?invite=cr-MSx6YlAsMjMyNTAxODc0",
     "percentToQualify": 100,
     "fps": "Any",
-    "records": []
+    "records": [
+        {
+            "user": "Groovey_Slack",
+            "link": "https://medal.tv/games/roblox/clips/nLkwqvlut03fR0U4M?invite=cr-MSxhSHksNTk1MTI2MTg0",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
 }
